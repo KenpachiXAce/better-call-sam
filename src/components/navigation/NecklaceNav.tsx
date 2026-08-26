@@ -22,18 +22,33 @@ export function NecklaceNav() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const beadButtonRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
+  const lastScrollYRef = useRef(0);
   const shouldReduceMotion = useReducedMotion();
 
-  // Scroll listener for compact sticky state
+  // Compact on scroll and tuck the necklace away while the page moves down.
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      const scrollY = window.scrollY;
+      const delta = scrollY - lastScrollYRef.current;
+
+      setIsScrolled(scrollY > 80);
+
+      if (mobileMenuOpen || scrollY < 80 || delta < -6) {
+        setIsCollapsed(false);
+      } else if (scrollY > 140 && delta > 6) {
+        setIsCollapsed(true);
+      }
+
+      lastScrollYRef.current = scrollY;
     };
+
+    lastScrollYRef.current = window.scrollY;
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [mobileMenuOpen]);
 
   // Accessibility: Focus trap & Escape key handler for mobile dialog
   useEffect(() => {
@@ -84,7 +99,10 @@ export function NecklaceNav() {
   const allNavItems: NavItem[] = [...arcClaws, contactClaw];
 
   return (
-    <header className="necklace-header sticky top-0 z-50 w-full border-b border-[rgba(247,244,238,0.1)] backdrop-blur-md transition-all duration-300">
+    <header
+      className={`necklace-header sticky top-0 z-50 w-full border-b border-[rgba(247,244,238,0.1)] backdrop-blur-md ${isCollapsed ? "is-collapsed" : ""}`}
+      data-collapsed={isCollapsed}
+    >
       {/* Desktop signature necklace navigation */}
       <div
         className={`hidden lg:flex items-start justify-between max-w-7xl mx-auto px-8 transition-all duration-300 ${
@@ -94,7 +112,7 @@ export function NecklaceNav() {
         {/* Left Ceremonial Chain Band */}
         <div className="flex-1 pt-3 flex items-center pr-4">
           <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[rgba(247,244,238,0.15)] to-[#4A4750]" />
-          <div className="w-1.5 h-1.5 rotate-45 border border-[#EA2B1F]/50 bg-[#090A0C] -ml-0.5" />
+          <div className="w-1.5 h-1.5 rotate-45 border border-[#4B019A]/60 bg-[#090A0C] -ml-0.5" />
         </div>
 
         {/* The 6 Main Arc Pendants */}
@@ -121,7 +139,7 @@ export function NecklaceNav() {
 
         {/* Separator Chain Link Spacer */}
         <div className="w-6 xl:w-10 pt-3 flex items-center px-1">
-          <div className="h-[1px] w-full bg-gradient-to-r from-[#4A4750] to-[#8D120B] border-t border-dashed border-[#EA2B1F]/30" />
+          <div className="h-[1px] w-full bg-gradient-to-r from-[#4A4750] to-[#2D005C] border-t border-dashed border-[#4B019A]/40" />
         </div>
 
         {/* 7th Isolated Contact Stylus */}
@@ -139,7 +157,7 @@ export function NecklaceNav() {
 
         {/* Right Ceremonial Chain Band */}
         <div className="flex-1 pt-3 flex items-center pl-4">
-          <div className="w-1.5 h-1.5 rotate-45 border border-[#EA2B1F]/50 bg-[#090A0C] -mr-0.5" />
+          <div className="w-1.5 h-1.5 rotate-45 border border-[#4B019A]/60 bg-[#090A0C] -mr-0.5" />
           <div className="h-[1px] w-full bg-gradient-to-r from-[#4A4750] via-[rgba(247,244,238,0.15)] to-transparent" />
         </div>
       </div>
@@ -155,14 +173,14 @@ export function NecklaceNav() {
         <button
           ref={beadButtonRef}
           onClick={() => setMobileMenuOpen(true)}
-          className="w-11 h-11 rounded-full border border-[rgba(247,244,238,0.25)] bg-[#111214] hover:border-[#EA2B1F] flex items-center justify-center p-1 relative group focus-visible:ring-2 focus-visible:ring-[#EA2B1F] transition-all shadow-[0_0_12px_rgba(0,0,0,0.5)]"
+          className="w-11 h-11 rounded-full border border-[rgba(247,244,238,0.25)] bg-[#111214] hover:border-[#4B019A] flex items-center justify-center p-1 relative group focus-visible:ring-2 focus-visible:ring-[#4B019A] transition-all shadow-[0_0_12px_rgba(0,0,0,0.5)]"
           aria-label="Open navigation menu"
           aria-expanded={mobileMenuOpen}
         >
           {/* Outer Faceted Metal Rim */}
           <div className="w-full h-full rounded-full border border-[#D9D8D5]/40 flex items-center justify-center relative overflow-hidden">
-            {/* Inner acid-lime jewel stone */}
-            <div className="w-4 h-4 rounded-full bg-[#8D120B] border border-[#EA2B1F] group-hover:bg-[#EA2B1F] group-hover:shadow-[0_0_10px_#EA2B1F] transition-all flex items-center justify-center">
+            {/* Inner purple jewel stone */}
+            <div className="w-4 h-4 rounded-full bg-[#2D005C] border border-[#4B019A] group-hover:bg-[#4B019A] group-hover:shadow-[0_0_10px_#4B019A] transition-all flex items-center justify-center">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F7F4EE] opacity-80" />
             </div>
           </div>
@@ -182,12 +200,12 @@ export function NecklaceNav() {
             {/* Top Bar of Modal */}
             <div className="flex items-center justify-between border-b border-[rgba(247,244,238,0.12)] pb-4">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#EA2B1F]" />
+                <span className="w-2 h-2 rounded-full bg-[#4B019A]" />
                 <span className="font-semibold text-sm tracking-wider text-[#F7F4EE]">NAVIGATION</span>
               </div>
               <button
                 onClick={handleCloseMenu}
-                className="p-2 border border-[rgba(247,244,238,0.2)] hover:border-[#EA2B1F] text-[#A5A2A0] hover:text-[#F7F4EE] transition-colors"
+                className="p-2 border border-[rgba(247,244,238,0.2)] hover:border-[#4B019A] text-[#A5A2A0] hover:text-[#F7F4EE] transition-colors"
                 aria-label="Close navigation menu"
               >
                 <X className="w-5 h-5" />
@@ -210,15 +228,15 @@ export function NecklaceNav() {
                       onClick={handleCloseMenu}
                       className={`flex items-center justify-between px-4 py-3.5 border transition-all text-sm ${
                         isActive
-                          ? "border-[#EA2B1F] bg-[#EA2B1F]/10 text-[#F7F4EE] font-semibold shadow-[0_0_12px_rgba(234,43,31,0.2)]"
-                          : "border-[rgba(247,244,238,0.1)] bg-[#111214]/60 text-[#A5A2A0] hover:border-[#EA2B1F]/50 hover:text-[#F7F4EE]"
+                          ? "border-[#4B019A] bg-[#4B019A]/15 text-[#F7F4EE] font-semibold shadow-[0_0_12px_rgba(75,1,154,0.28)]"
+                          : "border-[rgba(247,244,238,0.1)] bg-[#111214]/60 text-[#A5A2A0] hover:border-[#4B019A]/60 hover:text-[#F7F4EE]"
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <span className="text-[10px] text-[#EA2B1F]">0{idx + 1}</span>
+                        <span className="text-[10px] text-[#7C25D4]">0{idx + 1}</span>
                         <span className="tracking-wider uppercase">{item.label}</span>
                       </div>
-                      {isActive && <span className="text-[10px] text-[#EA2B1F] uppercase font-bold">[ACTIVE]</span>}
+                      {isActive && <span className="text-[10px] text-[#7C25D4] uppercase font-bold">[ACTIVE]</span>}
                       {item.isIsolated && !isActive && <span className="text-[10px] text-[rgba(247,244,238,0.4)] uppercase">[DIRECT]</span>}
                     </Link>
                   </motion.div>
@@ -232,7 +250,7 @@ export function NecklaceNav() {
               <Link
                 href="/contact"
                 onClick={handleCloseMenu}
-                className="text-[#EA2B1F] hover:underline font-semibold"
+                className="text-[#7C25D4] hover:text-[#A86BEB] hover:underline font-semibold"
               >
                 Start a project &rarr;
               </Link>

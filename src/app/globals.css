@@ -118,6 +118,37 @@ body {
 .necklace-header {
   background: linear-gradient(180deg, rgba(9, 10, 12, 0.4) 0%, rgba(9, 10, 12, 0.22) 72%, rgba(9, 10, 12, 0.08) 100%);
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.18);
+  transform: translateY(0);
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), background-color 220ms ease;
+  will-change: transform;
+}
+
+.necklace-header::after {
+  position: absolute;
+  right: 50%;
+  bottom: 5px;
+  width: 48px;
+  height: 3px;
+  border-radius: 999px;
+  background: #4B019A;
+  box-shadow: 0 0 12px rgba(75, 1, 154, 0.7);
+  content: "";
+  opacity: 0;
+  transform: translateX(50%);
+  transition: opacity 180ms ease;
+}
+
+.necklace-header.is-collapsed {
+  transform: translateY(calc(-100% + 18px));
+}
+
+.necklace-header.is-collapsed::after {
+  opacity: 1;
+}
+
+.necklace-header.is-collapsed:hover,
+.necklace-header.is-collapsed:focus-within {
+  transform: translateY(0);
 }
 
 /* ── Reference-inspired editorial hero ───────────────────────────────── */
@@ -1907,9 +1938,9 @@ body {
 }
 
 .hero-portrait {
-  top: 430px;
-  width: clamp(340px, 35vw, 470px);
-  height: clamp(440px, 44vw, 520px);
+  top: 400px;
+  width: clamp(380px, 39vw, 540px);
+  height: clamp(500px, 50vw, 610px);
 }
 
 .hero-stage__caption {
@@ -2204,8 +2235,9 @@ body {
   }
 
   .hero-portrait {
-    top: 505px;
-    height: 390px;
+    top: 485px;
+    width: min(88vw, 420px);
+    height: 450px;
   }
 }
 
@@ -2219,8 +2251,9 @@ body {
   }
 
   .hero-portrait {
-    top: 535px;
-    height: 330px;
+    top: 520px;
+    width: min(92vw, 380px);
+    height: 370px;
   }
 
   .about-section-heading__title {
@@ -2306,22 +2339,6 @@ body {
 .spider-mark--ink { filter: brightness(0); opacity: 0.75; }
 .spider-mark--muted { filter: grayscale(1); opacity: 0.22; }
 
-.hero-spider-mark {
-  position: absolute;
-  z-index: 5;
-  top: clamp(1.2rem, 3vw, 2.5rem);
-  right: clamp(1.2rem, 3vw, 2.5rem);
-  transform: rotate(7deg);
-}
-
-.section-heading-spider {
-  position: absolute;
-  top: 0;
-  right: 0;
-  opacity: 0.52;
-  transform: rotate(6deg);
-}
-
 .project-spider-mark {
   position: absolute;
   z-index: 0;
@@ -2345,6 +2362,73 @@ body {
 
 .hero-editorial-card {
   border-radius: var(--radius-panel);
+}
+
+.hero-sticker-layer {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.hero-sticker {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(17, 18, 20, 0.11);
+  background: #FFFFFF;
+  box-shadow: 0 16px 34px rgba(17, 18, 20, 0.14);
+  filter: saturate(0.94);
+}
+
+.hero-sticker img {
+  object-fit: cover;
+}
+
+.hero-sticker--punk {
+  left: clamp(1.2rem, 3.5vw, 3.5rem);
+  bottom: 4rem;
+  width: clamp(88px, 9vw, 132px);
+  height: clamp(126px, 13vw, 180px);
+  border-radius: 24px;
+  opacity: 0.88;
+  transform: rotate(-8deg);
+}
+
+.hero-sticker--designer {
+  right: clamp(1.2rem, 3.5vw, 3.5rem);
+  bottom: 3.2rem;
+  width: clamp(96px, 10vw, 142px);
+  height: clamp(126px, 13vw, 180px);
+  border-radius: 24px;
+  opacity: 0.85;
+  transform: rotate(7deg);
+}
+
+.hero-sticker--figma,
+.hero-sticker--photoshop {
+  top: 48%;
+  width: clamp(54px, 5.2vw, 72px);
+  height: clamp(48px, 4.8vw, 66px);
+  border-radius: 18px;
+}
+
+.hero-sticker--figma {
+  left: clamp(12%, 17vw, 21%);
+  transform: rotate(9deg);
+}
+
+.hero-sticker--photoshop {
+  right: clamp(12%, 17vw, 21%);
+  transform: rotate(-8deg);
+}
+
+.hero-sticker--figma img,
+.hero-sticker--photoshop img {
+  object-fit: contain;
+  padding: 0.35rem;
 }
 
 .service-index__row {
@@ -2398,16 +2482,31 @@ body {
     --page-gutter: 24px;
   }
 
-  .section-heading-spider {
+  .hero-sticker--punk,
+  .hero-sticker--designer {
+    display: none;
+  }
+
+  .hero-sticker--figma,
+  .hero-sticker--photoshop {
     top: auto;
     bottom: 1.5rem;
+    width: 54px;
+    height: 48px;
+  }
+
+  .hero-sticker--figma {
+    left: 1.25rem;
+  }
+
+  .hero-sticker--photoshop {
+    right: 1.25rem;
   }
 }
 
 @media (max-width: 540px) {
-  .hero-spider-mark {
-    width: 48px;
-    height: 42px;
+  .hero-sticker-layer {
+    display: none;
   }
 
   .service-index__row {
@@ -2417,5 +2516,11 @@ body {
   .service-index__number {
     width: 60px;
     min-height: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .necklace-header {
+    transition: none;
   }
 }

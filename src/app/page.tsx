@@ -7,7 +7,6 @@ import { OWNER_DATA } from "@/data/projects";
 import { ProjectShowcase } from "@/components/home/ProjectShowcase";
 import { ServiceIndex } from "@/components/home/ServiceIndex";
 import { SketchIcon } from "@/components/ui/SketchIcon";
-import { SpiderMark } from "@/components/ui/SpiderMark";
 
 const aboutStats = [
   { label: "Agency experience", value: "10 months", detail: "Product workflow" },
@@ -30,7 +29,6 @@ export default function HomePage() {
         <div className="hero-stage__aura" aria-hidden="true" />
 
         <div className="hero-editorial-card">
-          <SpiderMark size="lg" className="hero-spider-mark" />
           <div className="hero-editorial-card__copy">
             <p className="section-kicker">Independent product designer · Kathmandu</p>
             <h1 className="hero-editorial-title">
@@ -48,6 +46,21 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          <div className="hero-sticker-layer" aria-hidden="true">
+            <span className="hero-sticker hero-sticker--punk">
+              <Image src="/images/spider-punk-stickers.png" alt="" fill sizes="150px" />
+            </span>
+            <span className="hero-sticker hero-sticker--designer">
+              <Image src="/images/designer-sticker-kit.png" alt="" fill sizes="140px" />
+            </span>
+            <span className="hero-sticker hero-sticker--figma">
+              <Image src="/images/figma-sticker.png" alt="" fill sizes="72px" />
+            </span>
+            <span className="hero-sticker hero-sticker--photoshop">
+              <Image src="/images/photoshop-sticker.png" alt="" fill sizes="72px" />
+            </span>
+          </div>
         </div>
 
         <div className="hero-portrait" aria-label="Portrait of Sameer Chaudhary">
@@ -57,7 +70,7 @@ export default function HomePage() {
             fill
             priority
             className="object-contain object-bottom"
-            sizes="(max-width: 640px) 78vw, 470px"
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 420px, 540px"
           />
           <div className="hero-portrait__grade" aria-hidden="true" />
         </div>
@@ -122,7 +135,6 @@ export default function HomePage() {
             <p className="about-section-heading__copy">
               Product thinking, visual craft and build awareness.
             </p>
-            <SpiderMark size="md" className="section-heading-spider" />
           </div>
 
           <div className="about-grid mt-10">
@@ -171,8 +183,7 @@ export default function HomePage() {
                 <p className="section-kicker">05 / Process</p>
                 <h2 className="section-heading-standard__title">Design process</h2>
               </div>
-              <p className="section-heading-standard__copy">From questions to build-ready design.</p>
-              <SpiderMark size="md" className="section-heading-spider" />
+              <p className="section-heading-standard__copy">A clear path from discovery to handoff.</p>
             </div>
 
             <div className="process-cards">
@@ -196,7 +207,6 @@ export default function HomePage() {
           <div className="final-cta__eyebrow">
             <span>06 / Contact</span>
             <span>Kathmandu · Available worldwide</span>
-            <SpiderMark size="sm" tone="ink" />
           </div>
           <div className="final-cta__composition">
             <div className="final-cta__headline">

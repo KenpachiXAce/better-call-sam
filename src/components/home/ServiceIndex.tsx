@@ -24,7 +24,6 @@ export function ServiceIndex() {
           <p className="editorial-section-header__copy">
             Direct projects and agency partnerships.
           </p>
-          <SpiderMark size="md" className="section-heading-spider" />
         </header>
 
         <div className="services-hover-stage">
