@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <g fill="#B37CFF" opacity="0.95">
+    <!-- Left claw 1 -->
+    <path d="M6 28 Q4 24 5 18 Q6 14 8 18 Q9 24 8 28 Z" />
+    <!-- Left claw 2 -->
+    <path d="M11 30 Q9 25 10 19 Q11 15 13 19 Q14 25 13 30 Z" />
+    <!-- Right claw 1 -->
+    <path d="M19 30 Q18 25 19 19 Q20 15 22 19 Q23 25 22 30 Z" />
+    <!-- Right claw 2 -->
+    <path d="M24 28 Q23 24 24 18 Q25 14 27 18 Q28 24 27 28 Z" />
+    <!-- Palm -->
+    <ellipse cx="16" cy="16" rx="8" ry="5" opacity="0.4"/>
+  </g>
+</svg>
