@@ -6,6 +6,8 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { FEATURED_PROJECTS } from "@/data/projects";
 import { useReducedMotion } from "framer-motion";
 
+const projectSurfaces = ["#111214", "#0D0E10", "#151518", "#0A0B0D"];
+
 export function ProjectShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -88,7 +90,7 @@ export function ProjectShowcase() {
             <div className="flex items-center gap-3">
               <span className="text-[#B37CFF] font-semibold">02 //</span>
               <h2 className="text-sm font-semibold uppercase text-[#F7F4EE] tracking-wider">
-                Selected Work Sequence
+                Selected Work
               </h2>
             </div>
 
@@ -135,16 +137,17 @@ export function ProjectShowcase() {
                 return (
                   <article
                     key={project.id}
-                    className={`w-[78vw] max-w-5xl shrink-0 p-8 sm:p-12 border transition-all duration-300 flex flex-col justify-between gap-8 glass-card rounded-[18px] ${
+                    className={`project-glass-card w-[78vw] max-w-5xl shrink-0 p-8 sm:p-12 border transition-all duration-300 flex flex-col justify-between gap-8 glass-card rounded-[8px] ${
                       isActive
-                        ? "border-[#B37CFF] shadow-[0_0_40px_rgba(86,0,168,0.25)]"
-                        : "border-[rgba(247,244,238,0.12)] opacity-60"
+                        ? "border-[#B37CFF]/55 shadow-[0_28px_90px_rgba(0,0,0,0.48)]"
+                        : "border-[rgba(247,244,238,0.1)] opacity-55"
                     }`}
+                    style={{ backgroundColor: projectSurfaces[idx % projectSurfaces.length] }}
                   >
                     {/* Slide Top Metadata */}
                     <div className="flex items-center justify-between text-xs text-[#A5A2A0]">
                       <div className="flex items-center gap-3">
-                        <span className="font-bold text-[#B37CFF]">{project.number} //</span>
+                        <span className="font-bold text-[#B37CFF]">{project.number} {"//"}</span>
                         <span className="uppercase tracking-wider">{project.category}</span>
                         <span className="text-[rgba(247,244,238,0.25)]">·</span>
                         <span>{project.year}</span>
@@ -225,10 +228,11 @@ export function ProjectShowcase() {
           {FEATURED_PROJECTS.map((project) => (
             <article
               key={project.id}
-              className="p-6 sm:p-8 bg-[#111214] border border-[rgba(247,244,238,0.14)] flex flex-col gap-4"
+              className="project-glass-card glass-card rounded-[8px] border border-[rgba(247,244,238,0.12)] p-6 sm:p-8 flex flex-col gap-4"
+              style={{ backgroundColor: projectSurfaces[Number(project.number) - 1] ?? "#111214" }}
             >
               <div className="flex items-center justify-between text-xs text-[#A5A2A0]">
-                <span className="font-bold text-[#B37CFF]">{project.number} //</span>
+                <span className="font-bold text-[#B37CFF]">{project.number} {"//"}</span>
                 <span className="uppercase">{project.category}</span>
                 <span>{project.year}</span>
               </div>
