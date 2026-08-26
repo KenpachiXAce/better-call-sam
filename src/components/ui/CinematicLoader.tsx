@@ -88,7 +88,7 @@ export function CinematicLoader() {
           {/* Top Identifier */}
           <div className="flex items-center justify-between text-xs text-[#A5A2A0]">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#B6FF00] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#EA2B1F] animate-pulse" />
               <span className="uppercase tracking-widest text-[#F7F4EE]">SAM // STUDIO DIRECT</span>
             </div>
             <span className="text-[10px] text-[rgba(247,244,238,0.4)]">KATHMANDU · NEPAL</span>
@@ -101,7 +101,7 @@ export function CinematicLoader() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="font-editorial-italic text-3xl sm:text-4xl text-[#B6FF00]"
+              className="font-editorial-italic text-3xl sm:text-4xl text-[#EA2B1F]"
             >
               In case of creativity
             </motion.div>
@@ -134,7 +134,7 @@ export function CinematicLoader() {
               </motion.div>
               <div className="w-full h-[2px] bg-[rgba(247,244,238,0.1)] relative overflow-hidden">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-[#536F00] via-[#B6FF00] to-[#F7F4EE]"
+                  className="h-full bg-gradient-to-r from-[#8D120B] via-[#EA2B1F] to-[#FFB4AF]"
                   style={{ width: `${progress}%` }}
                   transition={{ ease: "easeOut" }}
                 />
@@ -149,7 +149,7 @@ export function CinematicLoader() {
             </div>
             <div className="text-2xl sm:text-3xl font-bold text-[#F7F4EE] font-mono tracking-tighter">
               {progress < 10 ? `00${progress}` : progress < 100 ? `0${progress}` : "100"}
-              <span className="text-xs text-[#B6FF00] ml-1 font-normal">%</span>
+              <span className="text-xs text-[#EA2B1F] ml-1 font-normal">%</span>
             </div>
           </div>
         </motion.div>

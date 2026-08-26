@@ -50,28 +50,28 @@ export const OWNER_DATA: VerifiedOwner = {
     {
       id: "product-uiux",
       title: "Product & UI/UX Design",
-      summary: "End-to-end product design from user research and information architecture to responsive interfaces and high-fidelity prototypes.",
+      summary: "Research, flows, interfaces and prototypes built around real user needs.",
       deliverables: ["User flows & journey maps", "Wireframes & interactive prototypes", "WCAG 2.2 AA compliant UI", "Design system documentation"],
       whenToHire: "When you are launching a new digital product or need to solve friction in existing user onboarding and conversion funnels."
     },
     {
       id: "responsive-design-systems",
       title: "Websites & Design Systems",
-      summary: "Multi-page websites, editorial platforms, and modular component libraries structured for clean developer handoff.",
+      summary: "Responsive websites and reusable systems ready for development.",
       deliverables: ["Responsive desktop/mobile layouts", "Semantic token architecture", "Component variants & auto-layout", "Engineering handoff specs"],
       whenToHire: "When your team is scaling past disjointed one-off pages and needs a cohesive, buildable design foundation."
     },
     {
       id: "email-campaigns",
       title: "Email & Campaign Design",
-      summary: "Editorial newsletters, transactional flows, and high-conversion marketing assets built for bulletproof rendering.",
+      summary: "Clear campaign systems designed for attention and action.",
       deliverables: ["Responsive email templates", "Marketing banner systems", "Campaign landing page design", "Typography hierarchy guidelines"],
       whenToHire: "When customer retention and outbound campaigns need visual polish without sacrificing cross-client deliverability."
     },
     {
       id: "branding-visual",
       title: "Branding & Visual Communication",
-      summary: "Distinctive visual identities, logo marks, typographic guidelines, and packaging concepts with intentional restraint.",
+      summary: "Focused identities that stay consistent across every touchpoint.",
       deliverables: ["Logo marks & lockups", "Color palettes & type pairings", "Packaging & collateral guidelines", "Vector icon sets"],
       whenToHire: "When your brand identity needs a memorable visual voice that translates effortlessly across digital and print touchpoints."
     }

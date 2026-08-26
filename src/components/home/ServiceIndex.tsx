@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowUpRight, Boxes, Mail, Palette, PanelsTopLeft } from "lucide-react";
 import { OWNER_DATA } from "@/data/projects";
 import { SketchIcon } from "@/components/ui/SketchIcon";
+import { SpiderMark } from "@/components/ui/SpiderMark";
 
 const serviceIcons = [PanelsTopLeft, Boxes, Mail, Palette];
 
@@ -21,15 +22,15 @@ export function ServiceIndex() {
             <p className="editorial-script">What I can help with</p>
           </div>
           <p className="editorial-section-header__copy">
-            Direct client projects and agency collaborations, shaped around the outcome—not a fixed package.
+            Direct projects and agency partnerships.
           </p>
+          <SpiderMark size="md" className="section-heading-spider" />
         </header>
 
         <div className="services-hover-stage">
           <div className="service-index">
             {OWNER_DATA.services.map((service, index) => {
               const isActive = index === activeIndex;
-              const Icon = serviceIcons[index];
               return (
                 <div key={service.id} className="service-row-wrap">
                   <button
@@ -40,8 +41,7 @@ export function ServiceIndex() {
                     onClick={() => setActiveIndex(index)}
                     aria-expanded={isActive}
                   >
-                    <span className="service-index__number">0{index + 1}</span>
-                    <SketchIcon icon={Icon} size="sm" />
+                    <span className="service-index__number"><SpiderMark size="sm" />0{index + 1}</span>
                     <span className="service-index__title">{service.title}</span>
                     <span className="service-index__arrow" aria-hidden="true"><ArrowUpRight /></span>
                   </button>

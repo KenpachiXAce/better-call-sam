@@ -107,7 +107,7 @@ export function PantherScrollIndex() {
                 <a
                   key={sec.id}
                   href={sec.href}
-                  className="group grid min-h-[54px] w-full grid-cols-[1fr_52px] items-center outline-none focus-visible:ring-1 focus-visible:ring-[#B6FF00]"
+                  className="group grid min-h-[54px] w-full grid-cols-[1fr_52px] items-center outline-none focus-visible:ring-1 focus-visible:ring-[#EA2B1F]"
                   aria-label={`Go to section ${sec.number}: ${sec.label}`}
                   aria-current={isActive ? "true" : undefined}
                 >
@@ -124,8 +124,8 @@ export function PantherScrollIndex() {
                     <div
                       className={`w-2 h-2 transition-all ${
                         isActive
-                          ? "bg-[#B6FF00] shadow-[0_0_8px_#B6FF00] scale-125"
-                          : "bg-[#111214] border border-[rgba(247,244,238,0.25)] group-hover:border-[#B6FF00]"
+                          ? "bg-[#EA2B1F] shadow-[0_0_8px_#EA2B1F] scale-125"
+                          : "bg-[#111214] border border-[rgba(247,244,238,0.25)] group-hover:border-[#EA2B1F]"
                       }`}
                     />
                   </div>

@@ -94,7 +94,7 @@ export function VinylPlayer() {
             className="hidden sm:flex flex-col p-3 bg-[#111214]/95 border border-[rgba(247,244,238,0.16)] backdrop-blur-xl shadow-2xl text-[11px] max-w-[210px]"
           >
             <div className="flex items-center justify-between text-[#A5A2A0] text-[9px] uppercase tracking-wider mb-1">
-              <span className="flex items-center gap-1 text-[#B6FF00]">
+              <span className="flex items-center gap-1 text-[#EA2B1F]">
                 <Music className="w-3 h-3" />
                 <span>SOUNDTRACK</span>
               </span>
@@ -116,7 +116,7 @@ export function VinylPlayer() {
       {/* Main Vinyl Record Button */}
       <button
         onClick={togglePlay}
-        className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#000000] border-2 border-[rgba(247,244,238,0.2)] hover:border-[#B6FF00] flex items-center justify-center p-1 group shadow-[0_0_20px_rgba(0,0,0,0.8)] focus-visible:ring-2 focus-visible:ring-[#B6FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090A0C] transition-all"
+        className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#000000] border-2 border-[rgba(247,244,238,0.2)] hover:border-[#EA2B1F] flex items-center justify-center p-1 group shadow-[0_0_20px_rgba(0,0,0,0.8)] focus-visible:ring-2 focus-visible:ring-[#EA2B1F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090A0C] transition-all"
         aria-label={isPlaying ? "Pause All the Stars by Kendrick Lamar & SZA" : "Play All the Stars by Kendrick Lamar & SZA"}
       >
         {/* Soft Violet Hover Glow */}
@@ -132,7 +132,7 @@ export function VinylPlayer() {
           {/* Concentric Vinyl Grooves */}
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-[rgba(247,244,238,0.15)] flex items-center justify-center">
             {/* Center label */}
-            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#536F00] border border-[#B6FF00] flex items-center justify-center">
+            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#8D120B] border border-[#EA2B1F] flex items-center justify-center">
               <span className="w-1 h-1 rounded-full bg-[#F7F4EE]" />
             </div>
           </div>
@@ -143,7 +143,7 @@ export function VinylPlayer() {
           {isPlaying ? (
             <Pause className="w-4 h-4 text-[#F7F4EE]" />
           ) : (
-            <Play className="w-4 h-4 text-[#B6FF00] ml-0.5" />
+            <Play className="w-4 h-4 text-[#EA2B1F] ml-0.5" />
           )}
         </div>
       </button>

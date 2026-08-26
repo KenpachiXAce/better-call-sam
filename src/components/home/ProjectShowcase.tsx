@@ -6,6 +6,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, Mail, PanelsTopLeft, Route, Ut
 import { FEATURED_PROJECTS } from "@/data/projects";
 import { useReducedMotion } from "framer-motion";
 import { SketchIcon } from "@/components/ui/SketchIcon";
+import { SpiderMark } from "@/components/ui/SpiderMark";
 
 const projectSurfaces = ["#111214", "#0D0E10", "#151518", "#0A0B0D"];
 const projectIcons = [Route, PanelsTopLeft, Utensils, Mail];
@@ -86,12 +87,12 @@ export function ProjectShowcase() {
     <section id="work" ref={containerRef} className="relative w-full border-t border-[rgba(247,244,238,0.12)] bg-[#090A0C]">
       {/* DESKTOP PINNED HORIZONTAL TRACK (>= 1024px) */}
       <div className="hidden lg:block relative h-[320vh]">
-        <div className="sticky top-0 h-screen w-full flex flex-col justify-between p-8 xl:p-14 overflow-hidden">
+        <div className="project-sticky-frame sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden">
           {/* Top Bar with Section Title & Controls */}
           <div className="w-full flex items-center justify-between border-b border-[rgba(247,244,238,0.12)] pb-4 text-xs text-[#A5A2A0]">
             <div className="flex items-center gap-3">
               <SketchIcon icon={PanelsTopLeft} size="sm" label="Selected work" />
-              <span className="text-[#B6FF00] font-semibold">02 //</span>
+              <span className="text-[#EA2B1F] font-semibold">02 //</span>
               <h2 className="text-sm font-semibold uppercase text-[#F7F4EE] tracking-wider">
                 Selected Work
               </h2>
@@ -100,7 +101,7 @@ export function ProjectShowcase() {
             {/* Previous / Next Controls & Progress Counter */}
             <div className="flex items-center gap-6">
               <div className="text-xs font-mono text-[#F7F4EE]">
-                <span className="text-[#B6FF00] font-bold">0{activeIdx + 1}</span>
+                <span className="text-[#EA2B1F] font-bold">0{activeIdx + 1}</span>
                 <span className="text-[rgba(247,244,238,0.3)] mx-1">/</span>
                 <span>0{totalSlides}</span>
               </div>
@@ -141,18 +142,19 @@ export function ProjectShowcase() {
                 return (
                   <article
                     key={project.id}
-                    className={`project-glass-card w-[78vw] max-w-5xl shrink-0 p-8 sm:p-12 border transition-all duration-300 flex flex-col justify-between gap-8 glass-card rounded-[8px] ${
+                    className={`project-glass-card w-[78vw] max-w-5xl shrink-0 p-8 sm:p-12 border transition-all duration-300 flex flex-col justify-between gap-8 glass-card rounded-[32px] ${
                       isActive
-                        ? "border-[#B6FF00]/55 shadow-[0_28px_90px_rgba(0,0,0,0.48)]"
+                        ? "border-[#EA2B1F]/55 shadow-[0_28px_90px_rgba(0,0,0,0.48)]"
                         : "border-[rgba(247,244,238,0.1)] opacity-55"
                     }`}
                     style={{ backgroundColor: projectSurfaces[idx % projectSurfaces.length] }}
                   >
+                    <SpiderMark size="md" className="project-spider-mark" />
                     {/* Slide Top Metadata */}
                     <div className="flex items-center justify-between text-xs text-[#A5A2A0]">
                       <div className="flex items-center gap-3">
                         <SketchIcon icon={ProjectIcon} size="sm" label={`${project.category} project`} />
-                        <span className="font-bold text-[#B6FF00]">{project.number} {"//"}</span>
+                        <span className="font-bold text-[#EA2B1F]">{project.number} {"//"}</span>
                         <span className="uppercase tracking-wider">{project.category}</span>
                         <span className="text-[rgba(247,244,238,0.25)]">·</span>
                         <span>{project.year}</span>
@@ -183,7 +185,7 @@ export function ProjectShowcase() {
                           <div key={rIdx} className="flex flex-col">
                             <span className="text-[10px] text-[#A5A2A0] uppercase">{res.label}</span>
                             <span className="text-lg font-bold text-[#F7F4EE] mt-0.5">{res.value}</span>
-                            <span className="text-[9px] text-[#B6FF00]">{res.detail}</span>
+                            <span className="text-[9px] text-[#EA2B1F]">{res.detail}</span>
                           </div>
                         ))}
                       </div>
@@ -192,15 +194,15 @@ export function ProjectShowcase() {
                     {/* Contribution Summary & Action Link */}
                     <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[rgba(247,244,238,0.1)] text-xs">
                       <div className="text-[#A5A2A0] max-w-lg truncate">
-                        <span className="text-[#B6FF00] font-semibold">Role:</span> {project.sameerRole}
+                        <span className="text-[#EA2B1F] font-semibold">Role:</span> {project.sameerRole}
                       </div>
 
                       <Link
                         href={project.href}
-                        className="px-6 py-3 bg-[#B6FF00] hover:bg-[#D9FF73] text-[#090A0C] uppercase tracking-wider font-semibold border border-[#B6FF00] flex items-center gap-2 transition-all shadow-[0_0_18px_rgba(182,255,0,0.18)]"
+                        className="px-6 py-3 bg-gradient-to-br from-[#EA2B1F] to-[#A6160F] hover:from-[#FF6B61] hover:to-[#EA2B1F] text-[#F7F4EE] uppercase tracking-wider font-semibold border border-[#EA2B1F] flex items-center gap-2 transition-all shadow-[0_0_18px_rgba(234,43,31,0.22)]"
                       >
                         <span>{project.isFlagship ? "Read Case Study" : "View Details"}</span>
-                        <ArrowUpRight className="w-4 h-4 text-[#090A0C]" />
+                        <ArrowUpRight className="w-4 h-4 text-[#F7F4EE]" />
                       </Link>
                     </div>
                   </article>
@@ -212,7 +214,7 @@ export function ProjectShowcase() {
           {/* Bottom Track Progress Bar */}
           <div className="w-full h-[2px] bg-[rgba(247,244,238,0.1)] relative">
             <div
-              className="h-full bg-[#B6FF00] transition-all"
+              className="h-full bg-[#EA2B1F] transition-all"
               style={{ width: `${((activeIdx + 1) / totalSlides) * 100}%` }}
             />
           </div>
@@ -220,11 +222,11 @@ export function ProjectShowcase() {
       </div>
 
       {/* MOBILE & TABLET EDITORIAL VERTICAL STACK (< 1024px) */}
-      <div className="lg:hidden py-16 px-6 sm:px-12 flex flex-col gap-10">
+      <div className="section-gutter lg:hidden py-16 flex flex-col gap-10">
         <div className="border-b border-[rgba(247,244,238,0.12)] pb-4 flex items-center justify-between text-xs text-[#A5A2A0]">
           <div className="flex items-center gap-2">
             <SketchIcon icon={PanelsTopLeft} size="sm" label="Selected work" />
-            <span className="text-[#B6FF00] font-semibold">02 //</span>
+            <span className="text-[#EA2B1F] font-semibold">02 //</span>
             <span className="uppercase text-[#F7F4EE] font-semibold">Selected Work</span>
           </div>
           <span>01 — 04</span>
@@ -236,12 +238,13 @@ export function ProjectShowcase() {
             return (
               <article
                 key={project.id}
-                className="project-glass-card glass-card rounded-[8px] border border-[rgba(247,244,238,0.12)] p-6 sm:p-8 flex flex-col gap-4"
+                className="project-glass-card glass-card rounded-[32px] border border-[rgba(247,244,238,0.12)] p-6 sm:p-8 flex flex-col gap-4"
                 style={{ backgroundColor: projectSurfaces[Number(project.number) - 1] ?? "#111214" }}
               >
+                <SpiderMark size="sm" className="project-spider-mark" />
                 <div className="flex items-center justify-between text-xs text-[#A5A2A0]">
                   <SketchIcon icon={ProjectIcon} size="sm" label={`${project.category} project`} />
-                  <span className="font-bold text-[#B6FF00]">{project.number} {"//"}</span>
+                  <span className="font-bold text-[#EA2B1F]">{project.number} {"//"}</span>
                   <span className="uppercase">{project.category}</span>
                   <span>{project.year}</span>
                 </div>
@@ -267,7 +270,7 @@ export function ProjectShowcase() {
 
                 <Link
                   href={project.href}
-                  className="mt-2 py-3 bg-[#B6FF00] text-[#090A0C] text-xs uppercase font-semibold text-center border border-[#B6FF00] flex items-center justify-center gap-1.5"
+                  className="mt-2 py-3 bg-gradient-to-br from-[#EA2B1F] to-[#A6160F] text-[#F7F4EE] text-xs uppercase font-semibold text-center border border-[#EA2B1F] flex items-center justify-center gap-1.5"
                 >
                   <span>{project.isFlagship ? "Read Case Study" : "View Project"}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

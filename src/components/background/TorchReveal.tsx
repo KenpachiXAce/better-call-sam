@@ -95,7 +95,7 @@ export function TorchReveal() {
         style={{
           left: "var(--mx, 50vw)",
           top: "var(--my, 50vh)",
-          background: "radial-gradient(circle, rgba(182, 255, 0, 0.22) 0%, rgba(182, 255, 0, 0.07) 48%, transparent 72%)",
+          background: "radial-gradient(circle, rgba(234, 43, 31, 0.25) 0%, rgba(141, 18, 11, 0.1) 48%, transparent 72%)",
           filter: "blur(30px)"
         }}
       />

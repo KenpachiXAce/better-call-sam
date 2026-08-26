@@ -7,6 +7,7 @@ import { CinematicLoader } from "@/components/ui/CinematicLoader";
 import { PantherScrollIndex } from "@/components/ui/PantherScrollIndex";
 import { VinylPlayer } from "@/components/ui/VinylPlayer";
 import { PantherCursor } from "@/components/ui/PantherCursor";
+import { SpiderMark } from "@/components/ui/SpiderMark";
 import Link from "next/link";
 import { Coffee } from "lucide-react";
 
@@ -105,7 +106,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#090A0C] text-[#F7F4EE] antialiased selection:bg-[#B6FF00] selection:text-[#090A0C]">
+      <body className="min-h-screen flex flex-col bg-[#090A0C] text-[#F7F4EE] antialiased selection:bg-[#EA2B1F] selection:text-[#F7F4EE]">
         {/* First-Session Cinematic Entry Loader */}
         <CinematicLoader />
 
@@ -138,7 +139,10 @@ export default function RootLayout({
         <footer className="site-footer">
           <div className="site-footer__frame">
             <div className="site-footer__identity">
-              <Link href="/" className="site-footer__brand">Better Call <em>Sam</em></Link>
+              <div className="site-footer__brandline">
+                <Link href="/" className="site-footer__brand">Better Call <em>Sam</em></Link>
+                <SpiderMark size="md" tone="muted" />
+              </div>
               <p>Product, UI/UX, campaign and visual design by Sameer Chaudhary.</p>
             </div>
 
