@@ -84,7 +84,7 @@ export function NecklaceNav() {
   const allNavItems: NavItem[] = [...arcClaws, contactClaw];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#090A0C]/90 backdrop-blur-md border-b border-[rgba(247,244,238,0.1)] transition-all duration-300">
+    <header className="necklace-header sticky top-0 z-50 w-full border-b border-[rgba(247,244,238,0.1)] backdrop-blur-md transition-all duration-300">
       {/* Desktop signature necklace navigation */}
       <div
         className={`hidden lg:flex items-start justify-between max-w-7xl mx-auto px-8 transition-all duration-300 ${

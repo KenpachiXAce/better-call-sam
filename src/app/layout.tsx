@@ -6,6 +6,7 @@ import { TorchReveal } from "@/components/background/TorchReveal";
 import { CinematicLoader } from "@/components/ui/CinematicLoader";
 import { PantherScrollIndex } from "@/components/ui/PantherScrollIndex";
 import { VinylPlayer } from "@/components/ui/VinylPlayer";
+import { PantherCursor } from "@/components/ui/PantherCursor";
 import Link from "next/link";
 import { Coffee } from "lucide-react";
 
@@ -98,6 +99,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-[#090A0C] text-[#F7F4EE] antialiased selection:bg-[#5600A8] selection:text-[#F7F4EE]">
         {/* First-Session Cinematic Entry Loader */}
         <CinematicLoader />
+
+        {/* Desktop panther pointer */}
+        <PantherCursor />
 
         {/* Accessible Skip to Main Content Link */}
         <a href="#main-content" className="skip-link">

@@ -1,26 +1,20 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { useReducedMotion } from "framer-motion";
 import { TribalPatternSVG } from "./TribalPatternSVG";
 
 export function TorchReveal() {
   const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isTouch, setIsTouch] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = useReducedMotion() ?? false;
 
   // Disable torch effect on Graphic Design page to keep raw artwork pure
   const isGraphicPage = pathname === "/graphic-design";
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-    const handleMotionChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener("change", handleMotionChange);
-
-    const touchCheck = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    setIsTouch(touchCheck);
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
     let rafId: number;
     let mouseX = window.innerWidth / 2;
@@ -61,10 +55,9 @@ export function TorchReveal() {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      mediaQuery.removeEventListener("change", handleMotionChange);
       cancelAnimationFrame(rafId);
     };
-  }, [isTouch, prefersReducedMotion, isGraphicPage]);
+  }, [prefersReducedMotion, isGraphicPage]);
 
   if (isGraphicPage) {
     return (
@@ -75,11 +68,11 @@ export function TorchReveal() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#090A0C] select-none"
+      className="pointer-events-none fixed inset-0 z-[15] overflow-hidden bg-transparent mix-blend-screen select-none"
       aria-hidden="true"
     >
-      {/* 1. Subtle Static Geometric Foundation Layer (3% Opacity) */}
-      <div className="absolute inset-0 opacity-[0.035]">
+      {/* 1. Subtle Static Geometric Foundation Layer */}
+      <div className="absolute inset-0 opacity-[0.05]">
         <TribalPatternSVG />
       </div>
 
@@ -87,10 +80,10 @@ export function TorchReveal() {
       <div
         className="absolute inset-0 transition-opacity duration-700"
         style={{
-          opacity: prefersReducedMotion ? 0.04 : 0.16,
-          maskImage: "radial-gradient(circle 240px at var(--mx, 50vw) var(--my, 50vh), black 0%, rgba(0,0,0,0.6) 45%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(circle 240px at var(--mx, 50vw) var(--my, 50vh), black 0%, rgba(0,0,0,0.6) 45%, transparent 100%)",
-          filter: "blur(20px)"
+          opacity: prefersReducedMotion ? 0.07 : 0.42,
+          maskImage: "radial-gradient(circle 330px at var(--mx, 50vw) var(--my, 50vh), black 0%, rgba(0,0,0,0.82) 46%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(circle 330px at var(--mx, 50vw) var(--my, 50vh), black 0%, rgba(0,0,0,0.82) 46%, transparent 100%)",
+          filter: "blur(11px)"
         }}
       >
         <TribalPatternSVG />
@@ -98,12 +91,12 @@ export function TorchReveal() {
 
       {/* 3. Soft Ambient Violet Flare */}
       <div
-        className="absolute w-[450px] h-[450px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2 opacity-20"
+        className="pointer-events-none absolute h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-35"
         style={{
           left: "var(--mx, 50vw)",
           top: "var(--my, 50vh)",
-          background: "radial-gradient(circle, rgba(179, 124, 255, 0.16) 0%, rgba(86, 0, 168, 0.06) 50%, transparent 70%)",
-          filter: "blur(36px)"
+          background: "radial-gradient(circle, rgba(179, 124, 255, 0.24) 0%, rgba(86, 0, 168, 0.09) 48%, transparent 72%)",
+          filter: "blur(30px)"
         }}
       />
     </div>

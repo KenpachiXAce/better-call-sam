@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 export function CinematicLoader() {
@@ -10,20 +11,15 @@ export function CinematicLoader() {
 
   useEffect(() => {
     // Only show on the first page load per browser session
-    if (typeof window !== "undefined") {
-      const hasSeenLoader = sessionStorage.getItem("bcs_intro_seen");
-      if (hasSeenLoader) {
-        setIsLoading(false);
-        return;
-      }
-    }
-
-    if (shouldReduceMotion) {
-      if (typeof window !== "undefined") {
+    const hasSeenLoader = typeof window !== "undefined" && sessionStorage.getItem("bcs_intro_seen");
+    if (hasSeenLoader || shouldReduceMotion) {
+      const skipTimer = window.setTimeout(() => {
+        if (shouldReduceMotion) {
         sessionStorage.setItem("bcs_intro_seen", "true");
-      }
-      setIsLoading(false);
-      return;
+        }
+        setIsLoading(false);
+      }, 0);
+      return () => window.clearTimeout(skipTimer);
     }
 
     // Lock page scroll while loader is visible
@@ -31,7 +27,6 @@ export function CinematicLoader() {
 
     let current = 0;
     const startTime = Date.now();
-    const minDuration = 800; // Minimum 800ms
     const maxDuration = 2200; // Normal max 2.2s
 
     const timer = setInterval(() => {
@@ -122,17 +117,19 @@ export function CinematicLoader() {
             </motion.h1>
 
             {/* Orbit / Line Progress with Panther */}
-            <div className="w-48 sm:w-64 h-12 relative mt-4 overflow-visible flex flex-col justify-end">
+            <div className="relative mt-2 flex h-40 w-64 flex-col justify-end overflow-visible sm:w-80">
               <motion.div
-                className="absolute bottom-2 h-8 w-16"
-                style={{ left: `${progress}%`, x: "-100%" }}
+                className="pointer-events-none absolute bottom-2 h-36 w-24"
+                style={{ left: `${Math.min(92, Math.max(8, progress))}%`, x: "-50%" }}
                 transition={{ ease: "easeOut" }}
               >
-                <img 
-                  src="/images/panther-running.png" 
-                  alt="Running Panther" 
-                  className="w-full h-full object-contain filter invert opacity-80" 
-                  style={{ mixBlendMode: 'screen' }} 
+                <Image
+                  src="/images/panther-motion.png"
+                  alt="Running panther"
+                  fill
+                  priority
+                  className="object-contain opacity-95 drop-shadow-[0_0_18px_rgba(179,124,255,0.38)]"
+                  sizes="96px"
                 />
               </motion.div>
               <div className="w-full h-[2px] bg-[rgba(247,244,238,0.1)] relative overflow-hidden">

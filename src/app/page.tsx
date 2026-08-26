@@ -24,35 +24,21 @@ const processSteps = [
 export default function HomePage() {
   return (
     <div className="flex w-full flex-col items-center select-text">
-      <section
-        id="hero"
-        className="hero-image-parent relative min-h-[calc(100svh-104px)] w-full overflow-hidden border-b border-white/10 bg-[#090A0C]"
-      >
-        <div className="hero-image-wrap absolute inset-y-0 right-0 z-0 w-full lg:w-[64%]">
-          <Image
-            src="/images/sameer-hero-new.png"
-            alt="Sameer Chaudhary standing outdoors in the mountains"
-            fill
-            priority
-            className="grayscale-base object-cover object-[58%_18%] lg:object-[52%_28%]"
-            sizes="(max-width: 1024px) 100vw, 64vw"
-          />
-          <div className="color-reveal-glow" />
-          <div className="hero-image-scrim" />
-        </div>
+      <section id="hero" className="hero-stage">
+        <div className="hero-stage__aura" aria-hidden="true" />
 
-        <div className="relative z-10 mx-auto flex min-h-[calc(100svh-104px)] w-full max-w-7xl flex-col justify-end px-6 pb-10 pt-28 sm:px-12 sm:pb-12 lg:justify-between lg:pt-24">
-          <div className="my-auto flex max-w-3xl flex-col gap-6 py-14">
-            <p className="font-editorial-italic text-4xl text-[#B37CFF] sm:text-6xl">
+        <div className="hero-editorial-card">
+          <div className="hero-editorial-card__copy">
+            <p className="font-editorial-italic text-3xl text-[#B37CFF] sm:text-5xl">
               In case of creativity
             </p>
-            <h1 className="text-display-xl max-w-[11ch] uppercase text-[#F7F4EE]">
+            <h1 className="hero-editorial-title">
               Better Call <span className="hero-name-accent">Sam</span>
             </h1>
-            <p className="max-w-xl text-base leading-7 text-[#C3C0BD] sm:text-lg sm:leading-8">
-              I design product experiences, websites and campaign systems that turn complex ideas into clear, buildable work.
+            <p className="hero-editorial-deck">
+              Product thinking, expressive interfaces and campaign systems shaped into clear, buildable work.
             </p>
-            <div className="mt-3 flex flex-wrap items-center gap-3">
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
               <a href="#work" className="hero-button hero-button--primary">
                 See selected work <ArrowDown className="h-4 w-4" />
               </a>
@@ -61,14 +47,33 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+        </div>
 
-          <div className="flex flex-col gap-3 border-t border-white/15 pt-5 text-[10px] uppercase tracking-[0.12em] text-[#A5A2A0] sm:flex-row sm:items-center sm:justify-between">
-            <span className="flex items-center gap-2">
-              <Compass className="h-3.5 w-3.5 text-[#B37CFF]" />
-              Kathmandu · Freelance and agency collaborations
-            </span>
-            <span>Scroll to explore · 01—06</span>
-          </div>
+        <div className="hero-portrait" aria-label="Portrait of Sameer Chaudhary">
+          <Image
+            src="/images/sameer-hero-new.png"
+            alt="Sameer Chaudhary standing outdoors in the mountains"
+            fill
+            priority
+            className="object-cover object-[50%_18%]"
+            sizes="(max-width: 640px) 78vw, 470px"
+          />
+          <div className="hero-portrait__grade" aria-hidden="true" />
+        </div>
+
+        <p className="hero-stage__caption hero-stage__caption--left">
+          Sameer Chaudhary<br /><span>Designer in Kathmandu</span>
+        </p>
+        <p className="hero-stage__caption hero-stage__caption--right">
+          Product &amp; UI/UX designer<br /><span>figuring out thoughtful digital systems</span>
+        </p>
+
+        <div className="hero-stage__footer">
+          <span className="flex items-center gap-2">
+            <Compass className="h-3.5 w-3.5 text-[#B37CFF]" />
+            Freelance and agency collaborations
+          </span>
+          <span>Scroll to explore · 01—06</span>
         </div>
       </section>
 
@@ -108,7 +113,7 @@ export default function HomePage() {
 
       <section id="about" className="w-full border-t border-white/10 bg-[#0D0E10] px-6 py-24 sm:px-12 sm:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 border-b border-white/10 pb-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <div className="horizontal-section-heading border-b border-white/10 pb-12">
             <p className="font-editorial-italic text-3xl text-[#B37CFF] sm:text-4xl">About Sameer</p>
             <h2 className="text-heading-1 max-w-[14ch] uppercase text-[#F7F4EE]">
               Design thinking with implementation awareness
@@ -153,25 +158,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="process" className="w-full border-t border-white/10 bg-[#090A0C] px-6 py-24 sm:px-12 sm:py-32">
+      <section id="process" className="process-section w-full border-t border-white/10 bg-[#090A0C] px-6 py-24 sm:px-12 sm:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 grid gap-4 sm:grid-cols-2 sm:items-end">
-            <div>
-              <p className="font-editorial-italic text-3xl text-[#B37CFF]">Collaboration</p>
-              <h2 className="mt-1 text-heading-1 uppercase text-[#F7F4EE]">Process</h2>
+          <div className="process-shell">
+            <div className="horizontal-section-heading horizontal-section-heading--three process-heading">
+              <p className="font-editorial-italic text-3xl text-[#B37CFF] sm:text-4xl">Design process</p>
+              <h2 className="text-heading-1 max-w-[15ch] uppercase text-[#F7F4EE]">
+                From ambiguity to buildable clarity
+              </h2>
+              <p className="max-w-sm text-sm leading-7 text-[#969397]">
+                A clear working rhythm, adapted to the scope and the people already in the room.
+              </p>
             </div>
-            <p className="max-w-md text-sm leading-7 text-[#969397] sm:justify-self-end">
-              A clear working rhythm, adapted to the scope and the people already in the room.
-            </p>
-          </div>
-          <div className="process-index">
-            {processSteps.map(([number, title, copy]) => (
-              <article key={number} className="process-index__row">
-                <span className="process-index__number">{number}</span>
-                <h3 className="process-index__title">{title}</h3>
-                <p className="process-index__copy">{copy}</p>
-              </article>
-            ))}
+
+            <div className="process-cards">
+              {processSteps.map(([number, title, copy]) => (
+                <article key={number} className="process-card">
+                  <div className="process-card__topline">
+                    <span className="process-card__number">{number}</span>
+                    <span aria-hidden="true">↗</span>
+                  </div>
+                  <h3 className="process-card__title">{title}</h3>
+                  <p className="process-card__copy">{copy}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

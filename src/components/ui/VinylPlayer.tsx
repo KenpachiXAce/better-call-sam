@@ -13,10 +13,11 @@ export function VinylPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
 
-  // Test if local audio file exists or fallback gracefully
+  // Use the user-supplied local soundtrack so playback is reliable and private.
   useEffect(() => {
-    // using iTunes preview URL for "All The Stars"
-    const audio = new Audio("https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c0/f7/bf/c0f7bf51-f86c-f32d-51b3-3225bb2e919c/mzaf_11957752847517885683.std.aac.p.m4a");
+    const audio = new Audio("/audio/all-the-stars.mp3");
+    audio.preload = "metadata";
+    audio.loop = true;
     audioRef.current = audio;
 
     const handleLoadedMetadata = () => {
@@ -97,7 +98,7 @@ export function VinylPlayer() {
                 <Music className="w-3 h-3" />
                 <span>SOUNDTRACK</span>
               </span>
-              <span>{isPlaying ? currentTime : "PAUSED"}</span>
+              <span>{isPlaying ? `${currentTime} / ${duration}` : "PAUSED"}</span>
             </div>
 
             <div className="font-semibold text-[#F7F4EE] truncate">All the Stars</div>

@@ -20,18 +20,17 @@ export function ServiceIndex() {
       id="services"
       className="w-full border-t border-[rgba(247,244,238,0.12)] bg-[#070809] px-6 py-24 sm:px-12 sm:py-32"
     >
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.74fr)] lg:gap-20">
-        <div>
-          <div className="mb-12 flex items-end justify-between gap-6 border-b border-white/10 pb-6">
-            <div>
-              <p className="font-editorial-italic text-3xl text-[#B37CFF]">Capabilities</p>
-              <h2 className="mt-1 text-heading-1 uppercase text-[#F7F4EE]">Services</h2>
-            </div>
-            <p className="hidden max-w-xs text-right text-[11px] uppercase leading-relaxed tracking-[0.16em] text-[#777579] sm:block">
-              Direct client projects<br />and agency collaborations
-            </p>
-          </div>
+      <div className="mx-auto max-w-7xl">
+        <div className="horizontal-section-heading horizontal-section-heading--three mb-14 border-b border-white/10 pb-10">
+          <p className="font-editorial-italic text-3xl text-[#B37CFF] sm:text-4xl">Capabilities</p>
+          <h2 className="text-heading-1 uppercase text-[#F7F4EE]">Services</h2>
+          <p className="max-w-xs text-[11px] uppercase leading-relaxed tracking-[0.16em] text-[#777579] lg:justify-self-end lg:text-right">
+            Direct client projects<br />and agency collaborations
+          </p>
+        </div>
 
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.74fr)] lg:gap-20">
+          <div>
           <div className="service-index">
             {OWNER_DATA.services.map((service, index) => {
               const isActive = index === activeIndex;
@@ -55,38 +54,39 @@ export function ServiceIndex() {
               );
             })}
           </div>
+          </div>
+
+          <aside className="service-preview lg:sticky lg:top-36 lg:self-start" aria-live="polite">
+            <div
+              className="service-preview__visual"
+              style={{ background: serviceAccents[activeIndex] }}
+              aria-hidden="true"
+            >
+              <span className="service-preview__ghost">0{activeIndex + 1}</span>
+              <div className="service-preview__orb" />
+              <span className="service-preview__mark">BCS / CAPABILITY</span>
+            </div>
+
+            <div className="service-preview__body">
+              <div className="flex items-center justify-between gap-4">
+                <span className="text-[10px] uppercase tracking-[0.18em] text-[#B37CFF]">
+                  Selected service
+                </span>
+                <span className="text-[10px] text-[#777579]">0{activeIndex + 1} / 04</span>
+              </div>
+              <h3 className="mt-6 text-2xl font-semibold uppercase leading-tight text-[#F7F4EE]">
+                {activeService.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-[#A5A2A0]">{activeService.summary}</p>
+              <div className="mt-7 border-t border-white/10 pt-5">
+                <span className="text-[9px] uppercase tracking-[0.16em] text-[#777579]">Core handoff</span>
+                <p className="mt-2 text-xs leading-6 text-[#D9D8D5]">
+                  {activeService.deliverables.slice(0, 3).join(" · ")}
+                </p>
+              </div>
+            </div>
+          </aside>
         </div>
-
-        <aside className="service-preview lg:sticky lg:top-36 lg:self-start" aria-live="polite">
-          <div
-            className="service-preview__visual"
-            style={{ background: serviceAccents[activeIndex] }}
-            aria-hidden="true"
-          >
-            <span className="service-preview__ghost">0{activeIndex + 1}</span>
-            <div className="service-preview__orb" />
-            <span className="service-preview__mark">BCS / CAPABILITY</span>
-          </div>
-
-          <div className="service-preview__body">
-            <div className="flex items-center justify-between gap-4">
-              <span className="text-[10px] uppercase tracking-[0.18em] text-[#B37CFF]">
-                Selected service
-              </span>
-              <span className="text-[10px] text-[#777579]">0{activeIndex + 1} / 04</span>
-            </div>
-            <h3 className="mt-6 text-2xl font-semibold uppercase leading-tight text-[#F7F4EE]">
-              {activeService.title}
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-[#A5A2A0]">{activeService.summary}</p>
-            <div className="mt-7 border-t border-white/10 pt-5">
-              <span className="text-[9px] uppercase tracking-[0.16em] text-[#777579]">Core handoff</span>
-              <p className="mt-2 text-xs leading-6 text-[#D9D8D5]">
-                {activeService.deliverables.slice(0, 3).join(" · ")}
-              </p>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
   );

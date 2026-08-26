@@ -75,28 +75,27 @@ export function PantherScrollIndex() {
       {/* Desktop Fixed Right Index Rail (>= 1280px) */}
       <nav
         aria-label="Section Scroll Navigation"
-        className="hidden xl:flex fixed right-5 top-1/2 -translate-y-1/2 z-40 flex-col items-end select-none"
+        className="fixed right-3 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-end select-none xl:flex"
       >
-        <div className="relative flex w-32 flex-col items-end py-4">
-          <div className="absolute bottom-0 right-[17px] top-0 w-px bg-[rgba(247,244,238,0.18)]" />
+        <div className="relative flex w-44 flex-col items-end py-8">
+          <div className="absolute bottom-0 right-[26px] top-0 w-px bg-[rgba(247,244,238,0.18)]" />
 
           {/* Traveling Climbing Panther Mark (Original Faceted Vector Animal) */}
           <div
-            className="absolute right-0 w-9 h-12 transition-all duration-300 pointer-events-none"
+            className="pointer-events-none absolute -right-4 h-[138px] w-[86px] transition-all duration-300"
             style={{
               top: shouldReduceMotion
-                ? `${(activeIndex / (SECTIONS.length - 1)) * 82 + 6}%`
-                : `${scrollProgress * 82 + 6}%`
+                ? `${(activeIndex / (SECTIONS.length - 1)) * 72 + 2}%`
+                : `${scrollProgress * 72 + 2}%`
             }}
             aria-hidden="true"
           >
-            {/* Original Stylized Panther Climbing Vector replaced by actual Panther Image */}
             <Image
-              src="/images/panther-index.png"
+              src="/images/panther-motion.png"
               alt="Panther scroll indicator"
-              width={36}
-              height={48}
-              className="h-full w-full object-contain opacity-90 invert mix-blend-screen"
+              width={86}
+              height={138}
+              className="h-full w-full object-contain opacity-95 drop-shadow-[0_0_15px_rgba(179,124,255,0.32)]"
             />
           </div>
 
@@ -108,7 +107,7 @@ export function PantherScrollIndex() {
                 <a
                   key={sec.id}
                   href={sec.href}
-                  className="group grid min-h-[44px] w-full grid-cols-[1fr_34px] items-center outline-none focus-visible:ring-1 focus-visible:ring-[#B37CFF]"
+                  className="group grid min-h-[54px] w-full grid-cols-[1fr_52px] items-center outline-none focus-visible:ring-1 focus-visible:ring-[#B37CFF]"
                   aria-label={`Go to section ${sec.number}: ${sec.label}`}
                   aria-current={isActive ? "true" : undefined}
                 >
