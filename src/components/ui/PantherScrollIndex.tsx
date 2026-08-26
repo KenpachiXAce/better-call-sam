@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
 
 interface SectionMarker {
@@ -74,15 +75,14 @@ export function PantherScrollIndex() {
       {/* Desktop Fixed Right Index Rail (>= 1280px) */}
       <nav
         aria-label="Section Scroll Navigation"
-        className="hidden xl:flex fixed right-8 top-1/2 -translate-y-1/2 z-40 flex-col items-center select-none"
+        className="hidden xl:flex fixed right-5 top-1/2 -translate-y-1/2 z-40 flex-col items-end select-none"
       >
-        {/* Track Line */}
-        <div className="relative w-8 flex flex-col items-center py-4">
-          <div className="absolute top-0 bottom-0 w-[1px]" />
+        <div className="relative flex w-32 flex-col items-end py-4">
+          <div className="absolute bottom-0 right-[17px] top-0 w-px bg-[rgba(247,244,238,0.18)]" />
 
           {/* Traveling Climbing Panther Mark (Original Faceted Vector Animal) */}
           <div
-            className="absolute -left-3 w-9 h-12 transition-all duration-300 pointer-events-none"
+            className="absolute right-0 w-9 h-12 transition-all duration-300 pointer-events-none"
             style={{
               top: shouldReduceMotion
                 ? `${(activeIndex / (SECTIONS.length - 1)) * 82 + 6}%`
@@ -91,23 +91,37 @@ export function PantherScrollIndex() {
             aria-hidden="true"
           >
             {/* Original Stylized Panther Climbing Vector replaced by actual Panther Image */}
-            <img src="/images/panther-index.png" alt="Panther Scroll Indicator" className="w-full h-full object-contain filter invert mix-blend-screen opacity-90" />
+            <Image
+              src="/images/panther-index.png"
+              alt="Panther scroll indicator"
+              width={36}
+              height={48}
+              className="h-full w-full object-contain opacity-90 invert mix-blend-screen"
+            />
           </div>
 
           {/* Section Marker Targets */}
-          <div className="flex flex-col gap-8 relative z-10">
-            {SECTIONS.map((sec, idx) => {
+          <div className="relative z-10 flex w-full flex-col gap-6">
+            {SECTIONS.map((sec) => {
               const isActive = activeSection === sec.id;
               return (
                 <a
                   key={sec.id}
                   href={sec.href}
-                  className="min-w-[44px] min-h-[44px] flex items-center justify-center group outline-none focus-visible:ring-1 focus-visible:ring-[#B37CFF]"
+                  className="group grid min-h-[44px] w-full grid-cols-[1fr_34px] items-center outline-none focus-visible:ring-1 focus-visible:ring-[#B37CFF]"
                   aria-label={`Go to section ${sec.number}: ${sec.label}`}
                   aria-current={isActive ? "true" : undefined}
                 >
-                  <div className="flex items-center gap-2">
-                    {/* Node Dot / Square */}
+                  <span
+                    className={`pr-3 text-right text-[9px] uppercase tracking-wider transition-all whitespace-nowrap ${
+                      isActive
+                        ? "text-[#F7F4EE] font-semibold opacity-100"
+                        : "text-[#A5A2A0] opacity-0 group-hover:opacity-100"
+                    }`}
+                  >
+                    {sec.number} {sec.label}
+                  </span>
+                  <div className="flex justify-center">
                     <div
                       className={`w-2 h-2 transition-all ${
                         isActive
@@ -115,17 +129,6 @@ export function PantherScrollIndex() {
                           : "bg-[#111214] border border-[rgba(247,244,238,0.25)] group-hover:border-[#B37CFF]"
                       }`}
                     />
-
-                    {/* Section Label on Hover / Active */}
-                    <span
-                      className={`text-[9px] uppercase tracking-wider transition-all whitespace-nowrap ${
-                        isActive
-                          ? "text-[#F7F4EE] font-semibold opacity-100"
-                          : "text-[#A5A2A0] opacity-0 group-hover:opacity-100"
-                      }`}
-                    >
-                      {sec.number} {sec.label}
-                    </span>
                   </div>
                 </a>
               );
