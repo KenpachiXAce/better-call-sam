@@ -9,10 +9,13 @@ export default function ContactPage() {
   return (
     <div className="contact-page select-text">
       <header className="contact-hero">
-        <div>
-          <p className="section-kicker">06 / Contact</p>
-          <h1 className="golden-display">Let&apos;s make the next thing</h1>
-          <p className="contact-hero__script">feel worth remembering.</p>
+        <div className="contact-hero__identity">
+          <SketchIcon icon={MessageCircle} size="lg" />
+          <div>
+            <p className="section-kicker">06 / Contact</p>
+            <h1 className="discipline-title">Let&apos;s make the next thing</h1>
+            <p className="contact-hero__script">feel worth remembering.</p>
+          </div>
         </div>
         <p className="contact-hero__copy">
           Share the context, the constraint, and what success should feel like. I&apos;ll reply with a practical next step within one working day.

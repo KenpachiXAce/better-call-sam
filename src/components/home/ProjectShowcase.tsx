@@ -2,11 +2,13 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Mail, PanelsTopLeft, Route, Utensils } from "lucide-react";
 import { FEATURED_PROJECTS } from "@/data/projects";
 import { useReducedMotion } from "framer-motion";
+import { SketchIcon } from "@/components/ui/SketchIcon";
 
 const projectSurfaces = ["#111214", "#0D0E10", "#151518", "#0A0B0D"];
+const projectIcons = [Route, PanelsTopLeft, Utensils, Mail];
 
 export function ProjectShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -88,7 +90,8 @@ export function ProjectShowcase() {
           {/* Top Bar with Section Title & Controls */}
           <div className="w-full flex items-center justify-between border-b border-[rgba(247,244,238,0.12)] pb-4 text-xs text-[#A5A2A0]">
             <div className="flex items-center gap-3">
-              <span className="text-[#B37CFF] font-semibold">02 //</span>
+              <SketchIcon icon={PanelsTopLeft} size="sm" label="Selected work" />
+              <span className="text-[#B6FF00] font-semibold">02 //</span>
               <h2 className="text-sm font-semibold uppercase text-[#F7F4EE] tracking-wider">
                 Selected Work
               </h2>
@@ -97,7 +100,7 @@ export function ProjectShowcase() {
             {/* Previous / Next Controls & Progress Counter */}
             <div className="flex items-center gap-6">
               <div className="text-xs font-mono text-[#F7F4EE]">
-                <span className="text-[#B37CFF] font-bold">0{activeIdx + 1}</span>
+                <span className="text-[#B6FF00] font-bold">0{activeIdx + 1}</span>
                 <span className="text-[rgba(247,244,238,0.3)] mx-1">/</span>
                 <span>0{totalSlides}</span>
               </div>
@@ -134,12 +137,13 @@ export function ProjectShowcase() {
             >
               {FEATURED_PROJECTS.map((project, idx) => {
                 const isActive = activeIdx === idx;
+                const ProjectIcon = projectIcons[idx] ?? PanelsTopLeft;
                 return (
                   <article
                     key={project.id}
                     className={`project-glass-card w-[78vw] max-w-5xl shrink-0 p-8 sm:p-12 border transition-all duration-300 flex flex-col justify-between gap-8 glass-card rounded-[8px] ${
                       isActive
-                        ? "border-[#B37CFF]/55 shadow-[0_28px_90px_rgba(0,0,0,0.48)]"
+                        ? "border-[#B6FF00]/55 shadow-[0_28px_90px_rgba(0,0,0,0.48)]"
                         : "border-[rgba(247,244,238,0.1)] opacity-55"
                     }`}
                     style={{ backgroundColor: projectSurfaces[idx % projectSurfaces.length] }}
@@ -147,7 +151,8 @@ export function ProjectShowcase() {
                     {/* Slide Top Metadata */}
                     <div className="flex items-center justify-between text-xs text-[#A5A2A0]">
                       <div className="flex items-center gap-3">
-                        <span className="font-bold text-[#B37CFF]">{project.number} {"//"}</span>
+                        <SketchIcon icon={ProjectIcon} size="sm" label={`${project.category} project`} />
+                        <span className="font-bold text-[#B6FF00]">{project.number} {"//"}</span>
                         <span className="uppercase tracking-wider">{project.category}</span>
                         <span className="text-[rgba(247,244,238,0.25)]">·</span>
                         <span>{project.year}</span>
@@ -178,7 +183,7 @@ export function ProjectShowcase() {
                           <div key={rIdx} className="flex flex-col">
                             <span className="text-[10px] text-[#A5A2A0] uppercase">{res.label}</span>
                             <span className="text-lg font-bold text-[#F7F4EE] mt-0.5">{res.value}</span>
-                            <span className="text-[9px] text-[#B37CFF]">{res.detail}</span>
+                            <span className="text-[9px] text-[#B6FF00]">{res.detail}</span>
                           </div>
                         ))}
                       </div>
@@ -187,15 +192,15 @@ export function ProjectShowcase() {
                     {/* Contribution Summary & Action Link */}
                     <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[rgba(247,244,238,0.1)] text-xs">
                       <div className="text-[#A5A2A0] max-w-lg truncate">
-                        <span className="text-[#B37CFF] font-semibold">Role:</span> {project.sameerRole}
+                        <span className="text-[#B6FF00] font-semibold">Role:</span> {project.sameerRole}
                       </div>
 
                       <Link
                         href={project.href}
-                        className="px-6 py-3 bg-[#5600A8] hover:bg-[#7A18D6] text-[#F7F4EE] uppercase tracking-wider font-semibold border border-[#B37CFF] flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(86,0,168,0.4)]"
+                        className="px-6 py-3 bg-[#B6FF00] hover:bg-[#D9FF73] text-[#090A0C] uppercase tracking-wider font-semibold border border-[#B6FF00] flex items-center gap-2 transition-all shadow-[0_0_18px_rgba(182,255,0,0.18)]"
                       >
                         <span>{project.isFlagship ? "Read Case Study" : "View Details"}</span>
-                        <ArrowUpRight className="w-4 h-4 text-[#F7F4EE]" />
+                        <ArrowUpRight className="w-4 h-4 text-[#090A0C]" />
                       </Link>
                     </div>
                   </article>
@@ -207,7 +212,7 @@ export function ProjectShowcase() {
           {/* Bottom Track Progress Bar */}
           <div className="w-full h-[2px] bg-[rgba(247,244,238,0.1)] relative">
             <div
-              className="h-full bg-[#B37CFF] transition-all"
+              className="h-full bg-[#B6FF00] transition-all"
               style={{ width: `${((activeIdx + 1) / totalSlides) * 100}%` }}
             />
           </div>
@@ -218,53 +223,58 @@ export function ProjectShowcase() {
       <div className="lg:hidden py-16 px-6 sm:px-12 flex flex-col gap-10">
         <div className="border-b border-[rgba(247,244,238,0.12)] pb-4 flex items-center justify-between text-xs text-[#A5A2A0]">
           <div className="flex items-center gap-2">
-            <span className="text-[#B37CFF] font-semibold">02 //</span>
+            <SketchIcon icon={PanelsTopLeft} size="sm" label="Selected work" />
+            <span className="text-[#B6FF00] font-semibold">02 //</span>
             <span className="uppercase text-[#F7F4EE] font-semibold">Selected Work</span>
           </div>
           <span>01 — 04</span>
         </div>
 
         <div className="flex flex-col gap-8">
-          {FEATURED_PROJECTS.map((project) => (
-            <article
-              key={project.id}
-              className="project-glass-card glass-card rounded-[8px] border border-[rgba(247,244,238,0.12)] p-6 sm:p-8 flex flex-col gap-4"
-              style={{ backgroundColor: projectSurfaces[Number(project.number) - 1] ?? "#111214" }}
-            >
-              <div className="flex items-center justify-between text-xs text-[#A5A2A0]">
-                <span className="font-bold text-[#B37CFF]">{project.number} {"//"}</span>
-                <span className="uppercase">{project.category}</span>
-                <span>{project.year}</span>
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-bold uppercase text-[#F7F4EE]">
-                {project.title}
-              </h3>
-
-              <p className="text-xs text-[#A5A2A0] leading-relaxed">
-                {project.subtitle}
-              </p>
-
-              {project.verifiedResults && (
-                <div className="grid grid-cols-2 gap-2 p-3 bg-[#090A0C] border border-[rgba(247,244,238,0.1)] text-xs">
-                  {project.verifiedResults.slice(0, 2).map((res, rIdx) => (
-                    <div key={rIdx} className="flex flex-col">
-                      <span className="text-[9px] text-[#A5A2A0] uppercase">{res.label}</span>
-                      <span className="text-sm font-bold text-[#F7F4EE]">{res.value}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              <Link
-                href={project.href}
-                className="mt-2 py-3 bg-[#5600A8] text-[#F7F4EE] text-xs uppercase font-semibold text-center border border-[#B37CFF] flex items-center justify-center gap-1.5"
+          {FEATURED_PROJECTS.map((project, index) => {
+            const ProjectIcon = projectIcons[index] ?? PanelsTopLeft;
+            return (
+              <article
+                key={project.id}
+                className="project-glass-card glass-card rounded-[8px] border border-[rgba(247,244,238,0.12)] p-6 sm:p-8 flex flex-col gap-4"
+                style={{ backgroundColor: projectSurfaces[Number(project.number) - 1] ?? "#111214" }}
               >
-                <span>{project.isFlagship ? "Read Case Study" : "View Project"}</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-            </article>
-          ))}
+                <div className="flex items-center justify-between text-xs text-[#A5A2A0]">
+                  <SketchIcon icon={ProjectIcon} size="sm" label={`${project.category} project`} />
+                  <span className="font-bold text-[#B6FF00]">{project.number} {"//"}</span>
+                  <span className="uppercase">{project.category}</span>
+                  <span>{project.year}</span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-bold uppercase text-[#F7F4EE]">
+                  {project.title}
+                </h3>
+
+                <p className="text-xs text-[#A5A2A0] leading-relaxed">
+                  {project.subtitle}
+                </p>
+
+                {project.verifiedResults && (
+                  <div className="grid grid-cols-2 gap-2 p-3 bg-[#090A0C] border border-[rgba(247,244,238,0.1)] text-xs">
+                    {project.verifiedResults.slice(0, 2).map((res, rIdx) => (
+                      <div key={rIdx} className="flex flex-col">
+                        <span className="text-[9px] text-[#A5A2A0] uppercase">{res.label}</span>
+                        <span className="text-sm font-bold text-[#F7F4EE]">{res.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <Link
+                  href={project.href}
+                  className="mt-2 py-3 bg-[#B6FF00] text-[#090A0C] text-xs uppercase font-semibold text-center border border-[#B6FF00] flex items-center justify-center gap-1.5"
+                >
+                  <span>{project.isFlagship ? "Read Case Study" : "View Project"}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

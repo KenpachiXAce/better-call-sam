@@ -105,7 +105,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#090A0C] text-[#F7F4EE] antialiased selection:bg-[#5600A8] selection:text-[#F7F4EE]">
+      <body className="min-h-screen flex flex-col bg-[#090A0C] text-[#F7F4EE] antialiased selection:bg-[#B6FF00] selection:text-[#090A0C]">
         {/* First-Session Cinematic Entry Loader */}
         <CinematicLoader />
 
@@ -135,42 +135,29 @@ export default function RootLayout({
         <VinylPlayer />
 
         {/* Global Editorial Footer */}
-        <footer className="relative z-20 w-full border-t border-[rgba(247,244,238,0.12)] bg-[#090A0C] py-12 px-6 sm:px-12 text-[12px] text-[#A5A2A0]">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            {/* Left: Identity & Persistent Phrase */}
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center gap-3">
-                <span className="font-semibold tracking-wider text-[#F7F4EE]">BETTER CALL SAM</span>
-                <span className="text-[rgba(247,244,238,0.3)]">|</span>
-                <span className="font-editorial-italic text-2xl text-[#B37CFF] -mb-1">In case of creativity</span>
-              </div>
-              <p className="text-[11px] text-[#A5A2A0] max-w-md leading-relaxed">
-                Sameer Chaudhary · Product Designer &amp; UI/UX Designer based in Kathmandu, Nepal. 10+ web projects across travel, education, hospitality, and commerce.
-              </p>
+        <footer className="site-footer">
+          <div className="site-footer__frame">
+            <div className="site-footer__identity">
+              <Link href="/" className="site-footer__brand">Better Call <em>Sam</em></Link>
+              <p>Product, UI/UX, campaign and visual design by Sameer Chaudhary.</p>
             </div>
 
-            {/* Center: In-Person Coffee & Email */}
-            <div className="flex flex-wrap items-center gap-4 text-[11px]">
-              <div className="flex items-center gap-2 px-3 py-1.5 border border-[rgba(247,244,238,0.16)] bg-[#111214]">
-                <Coffee className="w-3.5 h-3.5 text-[#B37CFF]" />
-                <span>Himalayan Java Meetings</span>
-                <Link href="/contact" className="text-[#B37CFF] hover:underline font-semibold ml-1">
-                  Book Table &rarr;
-                </Link>
-              </div>
+            <nav className="site-footer__nav" aria-label="Footer navigation">
+              <Link href="/ui-ux">UI/UX</Link>
+              <Link href="/branding">Branding</Link>
+              <Link href="/email-design">Email</Link>
+              <Link href="/case-studies">Case studies</Link>
+              <Link href="/graphic-design">Graphic design</Link>
+            </nav>
 
-              <a
-                href={`mailto:${contactEmail}`}
-                className="text-[#F7F4EE] hover:text-[#B37CFF] transition-colors underline underline-offset-4"
-              >
-                {contactEmail}
-              </a>
+            <div className="site-footer__contact">
+              <Link href="/contact"><Coffee aria-hidden="true" /> Meet over coffee</Link>
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
             </div>
 
-            {/* Right: Copyright */}
-            <div className="text-[11px] text-[#A5A2A0] flex flex-col items-start md:items-end gap-1">
-              <span>© {new Date().getFullYear()} Sameer Chaudhary.</span>
-              <span className="text-[10px] text-[rgba(247,244,238,0.4)]">Techspire College BSc IT (2024–2027)</span>
+            <div className="site-footer__base">
+              <span>© {new Date().getFullYear()} Sameer Chaudhary</span>
+              <span>Kathmandu, Nepal · In case of creativity</span>
             </div>
           </div>
         </footer>

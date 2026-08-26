@@ -4,10 +4,10 @@ interface SketchIconProps {
   icon: LucideIcon;
   label?: string;
   size?: "sm" | "md" | "lg";
-  tone?: "violet" | "paper";
+  tone?: "accent" | "violet" | "paper";
 }
 
-export function SketchIcon({ icon: Icon, label, size = "md", tone = "violet" }: SketchIconProps) {
+export function SketchIcon({ icon: Icon, label, size = "md", tone = "accent" }: SketchIconProps) {
   return (
     <span
       className={`sketch-icon sketch-icon--${size} sketch-icon--${tone}`}

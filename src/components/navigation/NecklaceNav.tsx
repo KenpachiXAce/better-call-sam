@@ -94,7 +94,7 @@ export function NecklaceNav() {
         {/* Left Ceremonial Chain Band */}
         <div className="flex-1 pt-3 flex items-center pr-4">
           <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[rgba(247,244,238,0.15)] to-[#4A4750]" />
-          <div className="w-1.5 h-1.5 rotate-45 border border-[#B37CFF]/50 bg-[#090A0C] -ml-0.5" />
+          <div className="w-1.5 h-1.5 rotate-45 border border-[#B6FF00]/50 bg-[#090A0C] -ml-0.5" />
         </div>
 
         {/* The 6 Main Arc Pendants */}
@@ -121,7 +121,7 @@ export function NecklaceNav() {
 
         {/* Separator Chain Link Spacer */}
         <div className="w-6 xl:w-10 pt-3 flex items-center px-1">
-          <div className="h-[1px] w-full bg-gradient-to-r from-[#4A4750] to-[#5600A8] border-t border-dashed border-[#B37CFF]/30" />
+          <div className="h-[1px] w-full bg-gradient-to-r from-[#4A4750] to-[#536F00] border-t border-dashed border-[#B6FF00]/30" />
         </div>
 
         {/* 7th Isolated Contact Stylus */}
@@ -139,7 +139,7 @@ export function NecklaceNav() {
 
         {/* Right Ceremonial Chain Band */}
         <div className="flex-1 pt-3 flex items-center pl-4">
-          <div className="w-1.5 h-1.5 rotate-45 border border-[#B37CFF]/50 bg-[#090A0C] -mr-0.5" />
+          <div className="w-1.5 h-1.5 rotate-45 border border-[#B6FF00]/50 bg-[#090A0C] -mr-0.5" />
           <div className="h-[1px] w-full bg-gradient-to-r from-[#4A4750] via-[rgba(247,244,238,0.15)] to-transparent" />
         </div>
       </div>
@@ -147,7 +147,7 @@ export function NecklaceNav() {
       {/* Mobile compact bead control */}
       <div className="lg:hidden flex items-center justify-between px-4 py-2.5">
         <Link href="/" className="flex items-center gap-2">
-          <span className="font-bold text-sm tracking-wider text-[#F7F4EE]">SAM</span>
+          <span className="mobile-sam-wordmark text-sm text-[#F7F4EE]">SAM</span>
           <span className="text-[10px] text-[#A5A2A0]">/ Product &amp; UIUX</span>
         </Link>
 
@@ -155,14 +155,14 @@ export function NecklaceNav() {
         <button
           ref={beadButtonRef}
           onClick={() => setMobileMenuOpen(true)}
-          className="w-11 h-11 rounded-full border border-[rgba(247,244,238,0.25)] bg-[#111214] hover:border-[#B37CFF] flex items-center justify-center p-1 relative group focus-visible:ring-2 focus-visible:ring-[#B37CFF] transition-all shadow-[0_0_12px_rgba(0,0,0,0.5)]"
+          className="w-11 h-11 rounded-full border border-[rgba(247,244,238,0.25)] bg-[#111214] hover:border-[#B6FF00] flex items-center justify-center p-1 relative group focus-visible:ring-2 focus-visible:ring-[#B6FF00] transition-all shadow-[0_0_12px_rgba(0,0,0,0.5)]"
           aria-label="Open navigation menu"
           aria-expanded={mobileMenuOpen}
         >
           {/* Outer Faceted Metal Rim */}
           <div className="w-full h-full rounded-full border border-[#D9D8D5]/40 flex items-center justify-center relative overflow-hidden">
-            {/* Inner Violet Jewel Stone */}
-            <div className="w-4 h-4 rounded-full bg-[#5600A8] border border-[#B37CFF] group-hover:bg-[#7A18D6] group-hover:shadow-[0_0_10px_#B37CFF] transition-all flex items-center justify-center">
+            {/* Inner acid-lime jewel stone */}
+            <div className="w-4 h-4 rounded-full bg-[#536F00] border border-[#B6FF00] group-hover:bg-[#B6FF00] group-hover:shadow-[0_0_10px_#B6FF00] transition-all flex items-center justify-center">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F7F4EE] opacity-80" />
             </div>
           </div>
@@ -182,12 +182,12 @@ export function NecklaceNav() {
             {/* Top Bar of Modal */}
             <div className="flex items-center justify-between border-b border-[rgba(247,244,238,0.12)] pb-4">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#B37CFF]" />
+                <span className="w-2 h-2 rounded-full bg-[#B6FF00]" />
                 <span className="font-semibold text-sm tracking-wider text-[#F7F4EE]">NAVIGATION</span>
               </div>
               <button
                 onClick={handleCloseMenu}
-                className="p-2 border border-[rgba(247,244,238,0.2)] hover:border-[#B37CFF] text-[#A5A2A0] hover:text-[#F7F4EE] transition-colors"
+                className="p-2 border border-[rgba(247,244,238,0.2)] hover:border-[#B6FF00] text-[#A5A2A0] hover:text-[#F7F4EE] transition-colors"
                 aria-label="Close navigation menu"
               >
                 <X className="w-5 h-5" />
@@ -210,15 +210,15 @@ export function NecklaceNav() {
                       onClick={handleCloseMenu}
                       className={`flex items-center justify-between px-4 py-3.5 border transition-all text-sm ${
                         isActive
-                          ? "border-[#B37CFF] bg-[#5600A8]/25 text-[#F7F4EE] font-semibold shadow-[0_0_12px_rgba(179,124,255,0.25)]"
-                          : "border-[rgba(247,244,238,0.1)] bg-[#111214]/60 text-[#A5A2A0] hover:border-[#B37CFF]/50 hover:text-[#F7F4EE]"
+                          ? "border-[#B6FF00] bg-[#B6FF00]/10 text-[#F7F4EE] font-semibold shadow-[0_0_12px_rgba(182,255,0,0.18)]"
+                          : "border-[rgba(247,244,238,0.1)] bg-[#111214]/60 text-[#A5A2A0] hover:border-[#B6FF00]/50 hover:text-[#F7F4EE]"
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <span className="text-[10px] text-[#B37CFF]">0{idx + 1}</span>
+                        <span className="text-[10px] text-[#B6FF00]">0{idx + 1}</span>
                         <span className="tracking-wider uppercase">{item.label}</span>
                       </div>
-                      {isActive && <span className="text-[10px] text-[#B37CFF] uppercase font-bold">[ACTIVE]</span>}
+                      {isActive && <span className="text-[10px] text-[#B6FF00] uppercase font-bold">[ACTIVE]</span>}
                       {item.isIsolated && !isActive && <span className="text-[10px] text-[rgba(247,244,238,0.4)] uppercase">[DIRECT]</span>}
                     </Link>
                   </motion.div>
@@ -232,7 +232,7 @@ export function NecklaceNav() {
               <Link
                 href="/contact"
                 onClick={handleCloseMenu}
-                className="text-[#B37CFF] hover:underline font-semibold"
+                className="text-[#B6FF00] hover:underline font-semibold"
               >
                 Start a project &rarr;
               </Link>

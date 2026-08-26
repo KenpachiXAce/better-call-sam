@@ -20,7 +20,6 @@ export function ServiceIndex() {
             <p className="section-kicker">03 / Capabilities</p>
             <p className="editorial-script">What I can help with</p>
           </div>
-          <h2 className="golden-heading">Services</h2>
           <p className="editorial-section-header__copy">
             Direct client projects and agency collaborations, shaped around the outcome—not a fixed package.
           </p>
