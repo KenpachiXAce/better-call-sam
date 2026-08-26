@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ClawPendant } from "./ClawPendant";
-import { Compass, X } from "lucide-react";
+import { X } from "lucide-react";
 
 interface NavItem {
   id: string;
@@ -85,43 +85,7 @@ export function NecklaceNav() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#090A0C]/90 backdrop-blur-md border-b border-[rgba(247,244,238,0.1)] transition-all duration-300">
-      {/* 1. Top Identity & Persistent Subheader Bar */}
-      <div className="w-full border-b border-[rgba(247,244,238,0.08)] px-4 sm:px-8 py-1.5 flex items-center justify-between text-[11px] text-[#A5A2A0] select-none">
-        {/* Left: Studio Brand & Persistent Subheader in Monsieur La Doulaise */}
-        <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-[#F7F4EE] hover:text-[#B37CFF] transition-colors focus-visible:ring-1 focus-visible:ring-[#B37CFF]"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#B37CFF]" />
-            <span className="font-semibold tracking-wider">BETTER CALL SAM</span>
-          </Link>
-          <span className="text-[rgba(247,244,238,0.25)] hidden sm:inline">|</span>
-          <span className="font-script text-lg text-[#B37CFF] hidden sm:inline -mb-0.5">
-            In case of creativity
-          </span>
-        </div>
-
-        {/* Mobile Persistent Subheader */}
-        <span className="font-script text-base text-[#B37CFF] sm:hidden -mb-0.5">
-          In case of creativity
-        </span>
-
-        {/* Right: Location & Availability */}
-        <div className="flex items-center gap-3 text-[10px]">
-          <span className="hidden md:flex items-center gap-1.5 text-[#A5A2A0]">
-            <Compass className="w-3 h-3 text-[#B37CFF]" />
-            <span>Kathmandu, Nepal</span>
-          </span>
-          <span className="text-[rgba(247,244,238,0.25)] hidden md:inline">·</span>
-          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 border border-[rgba(247,244,238,0.16)] bg-[#111214] text-[#F7F4EE] text-[9px] uppercase tracking-wider">
-            <span className="w-1 h-1 rounded-full bg-emerald-400" />
-            Available for Sprints
-          </span>
-        </div>
-      </div>
-
-      {/* 2. Desktop Signature Necklace Nav (Elliptical Half-Circle Arc) */}
+      {/* Desktop signature necklace navigation */}
       <div
         className={`hidden lg:flex items-start justify-between max-w-7xl mx-auto px-8 transition-all duration-300 ${
           isScrolled ? "pt-1 pb-2 max-h-[110px]" : "pt-2 pb-4 max-h-[145px]"
@@ -180,7 +144,7 @@ export function NecklaceNav() {
         </div>
       </div>
 
-      {/* 3. Mobile Navigation Header (< 768px): Compact Bead Control */}
+      {/* Mobile compact bead control */}
       <div className="lg:hidden flex items-center justify-between px-4 py-2.5">
         <Link href="/" className="flex items-center gap-2">
           <span className="font-bold text-sm tracking-wider text-[#F7F4EE]">SAM</span>
@@ -205,7 +169,7 @@ export function NecklaceNav() {
         </button>
       </div>
 
-      {/* 4. Accessible Mobile Dialog / Menu Overlay */}
+      {/* Accessible mobile dialog */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <div
