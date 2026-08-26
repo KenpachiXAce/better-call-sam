@@ -22,6 +22,16 @@ const processSteps = [
   { number: "04", title: "Deliver", copy: "Document, hand off and refine.", icon: PackageCheck },
 ];
 
+const heroStickers = [
+  { id: "anti-social", src: "/images/hero-stickers/anti-social.png", size: "180px" },
+  { id: "out-of-office", src: "/images/hero-stickers/out-of-office.png", size: "150px" },
+  { id: "shortcut-heart", src: "/images/hero-stickers/shortcut-heart.png", size: "88px" },
+  { id: "user-friendly", src: "/images/hero-stickers/user-friendly.png", size: "170px" },
+  { id: "globe", src: "/images/hero-stickers/globe.png", size: "84px" },
+  { id: "peace-hand", src: "/images/hero-stickers/peace-hand.png", size: "78px" },
+  { id: "sand-studio", src: "/images/hero-stickers/sand-studio.png", size: "82px" },
+];
+
 export default function HomePage() {
   return (
     <div className="flex w-full flex-col items-center select-text">
@@ -48,12 +58,11 @@ export default function HomePage() {
           </div>
 
           <div className="hero-sticker-layer" aria-hidden="true">
-            <span className="hero-sticker hero-sticker--punk">
-              <Image src="/images/spider-punk-stickers.png" alt="" fill sizes="150px" />
-            </span>
-            <span className="hero-sticker hero-sticker--designer">
-              <Image src="/images/designer-sticker-kit.png" alt="" fill sizes="140px" />
-            </span>
+            {heroStickers.map((sticker) => (
+              <span key={sticker.id} className={`hero-sticker hero-sticker--${sticker.id}`}>
+                <Image src={sticker.src} alt="" fill sizes={sticker.size} />
+              </span>
+            ))}
             <span className="hero-sticker hero-sticker--figma">
               <Image src="/images/figma-sticker.png" alt="" fill sizes="72px" />
             </span>

@@ -1996,6 +1996,13 @@ body {
   .editorial-section-header,
   .about-section-heading {
     grid-template-columns: minmax(320px, 0.8fr) minmax(0, 1.2fr);
+    column-gap: 70px;
+  }
+
+  .editorial-section-header__copy,
+  .about-section-heading__copy {
+    justify-self: end;
+    text-align: right;
   }
 }
 
@@ -2318,6 +2325,12 @@ body {
 @media (min-width: 900px) {
   .section-heading-standard {
     grid-template-columns: minmax(320px, 0.8fr) minmax(0, 1.2fr);
+    column-gap: 70px;
+  }
+
+  .section-heading-standard__copy {
+    justify-self: end;
+    text-align: right;
   }
 }
 
@@ -2376,52 +2389,87 @@ body {
 .hero-sticker {
   position: absolute;
   display: block;
-  overflow: hidden;
-  border: 1px solid rgba(17, 18, 20, 0.11);
-  background: #FFFFFF;
-  box-shadow: 0 16px 34px rgba(17, 18, 20, 0.14);
-  filter: saturate(0.94);
+  filter: saturate(0.95) drop-shadow(0 12px 18px rgba(17, 18, 20, 0.14));
 }
 
 .hero-sticker img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
-.hero-sticker--punk {
-  left: clamp(1.2rem, 3.5vw, 3.5rem);
-  bottom: 4rem;
-  width: clamp(88px, 9vw, 132px);
-  height: clamp(126px, 13vw, 180px);
-  border-radius: 24px;
-  opacity: 0.88;
-  transform: rotate(-8deg);
+.hero-sticker--anti-social {
+  left: clamp(1.5rem, 4vw, 4.5rem);
+  bottom: 3.4rem;
+  width: clamp(128px, 13vw, 180px);
+  height: clamp(70px, 7vw, 100px);
+  transform: rotate(-9deg);
 }
 
-.hero-sticker--designer {
-  right: clamp(1.2rem, 3.5vw, 3.5rem);
-  bottom: 3.2rem;
-  width: clamp(96px, 10vw, 142px);
-  height: clamp(126px, 13vw, 180px);
-  border-radius: 24px;
-  opacity: 0.85;
+.hero-sticker--out-of-office {
+  top: 2.25rem;
+  right: clamp(1.5rem, 4vw, 4.5rem);
+  width: clamp(112px, 11vw, 154px);
+  height: clamp(48px, 5vw, 66px);
+  transform: rotate(4deg);
+}
+
+.hero-sticker--shortcut-heart {
+  top: 46%;
+  left: clamp(7%, 11vw, 14%);
+  width: clamp(66px, 6.5vw, 90px);
+  height: clamp(64px, 6.5vw, 90px);
+  transform: rotate(-7deg);
+}
+
+.hero-sticker--user-friendly {
+  right: clamp(1.5rem, 4vw, 4.5rem);
+  bottom: 3.25rem;
+  width: clamp(126px, 13vw, 176px);
+  height: clamp(78px, 8vw, 108px);
   transform: rotate(7deg);
+}
+
+.hero-sticker--globe {
+  top: 45%;
+  right: clamp(8%, 12vw, 15%);
+  width: clamp(62px, 6vw, 84px);
+  height: clamp(62px, 6vw, 84px);
+  transform: rotate(8deg);
+}
+
+.hero-sticker--peace-hand {
+  left: clamp(2rem, 5vw, 5.5rem);
+  top: 2.4rem;
+  width: clamp(56px, 5.5vw, 78px);
+  height: clamp(64px, 6vw, 86px);
+  transform: rotate(11deg);
+}
+
+.hero-sticker--sand-studio {
+  right: clamp(2.5rem, 6vw, 6.5rem);
+  top: 32%;
+  width: clamp(62px, 6vw, 84px);
+  height: clamp(62px, 6vw, 84px);
+  transform: rotate(-9deg);
 }
 
 .hero-sticker--figma,
 .hero-sticker--photoshop {
-  top: 48%;
-  width: clamp(54px, 5.2vw, 72px);
-  height: clamp(48px, 4.8vw, 66px);
-  border-radius: 18px;
+  top: 63%;
+  overflow: hidden;
+  width: clamp(50px, 4.8vw, 66px);
+  height: clamp(44px, 4.4vw, 58px);
+  border: 1px solid rgba(17, 18, 20, 0.1);
+  border-radius: 16px;
+  background: #FFFFFF;
 }
 
 .hero-sticker--figma {
-  left: clamp(12%, 17vw, 21%);
+  left: clamp(16%, 20vw, 23%);
   transform: rotate(9deg);
 }
 
 .hero-sticker--photoshop {
-  right: clamp(12%, 17vw, 21%);
+  right: clamp(16%, 20vw, 23%);
   transform: rotate(-8deg);
 }
 
@@ -2482,21 +2530,39 @@ body {
     --page-gutter: 24px;
   }
 
-  .hero-sticker--punk,
-  .hero-sticker--designer {
+  .hero-sticker--anti-social,
+  .hero-sticker--out-of-office,
+  .hero-sticker--user-friendly,
+  .hero-sticker--sand-studio {
     display: none;
   }
 
+  .hero-sticker--shortcut-heart,
+  .hero-sticker--globe,
+  .hero-sticker--peace-hand,
   .hero-sticker--figma,
   .hero-sticker--photoshop {
     top: auto;
     bottom: 1.5rem;
-    width: 54px;
+    width: 48px;
     height: 48px;
   }
 
-  .hero-sticker--figma {
+  .hero-sticker--shortcut-heart {
     left: 1.25rem;
+  }
+
+  .hero-sticker--globe {
+    left: calc(1.25rem + 58px);
+  }
+
+  .hero-sticker--peace-hand {
+    left: calc(1.25rem + 116px);
+  }
+
+  .hero-sticker--figma {
+    right: calc(1.25rem + 58px);
+    left: auto;
   }
 
   .hero-sticker--photoshop {
