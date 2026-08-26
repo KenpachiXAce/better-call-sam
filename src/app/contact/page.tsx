@@ -1,54 +1,59 @@
-"use client";
-
-import React from "react";
+import { Coffee, Mail, MapPin, MessageCircle } from "lucide-react";
 import { LetterPaper } from "@/components/contact/LetterPaper";
 import { HimalayanJavaScheduler } from "@/components/contact/HimalayanJavaScheduler";
-import { Mail, Compass, Coffee, Shield } from "lucide-react";
+import { SketchIcon } from "@/components/ui/SketchIcon";
 
 export default function ContactPage() {
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@bettercallsam.design";
+
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 sm:px-12 py-16 flex flex-col gap-12 select-text">
-      {/* Top Header */}
-      <div className="flex flex-col gap-3 border-b border-[rgba(247,244,238,0.12)] pb-8">
-        <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-[#A5A2A0]">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#B37CFF]" />
-            <span className="text-[#F7F4EE] uppercase tracking-wider font-semibold">
-              START A PROJECT // DIRECT ACCESS
-            </span>
-          </div>
-          <span className="text-[11px] text-[#B37CFF]">KATHMANDU ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€š· GLOBAL SPRINTS</span>
+    <div className="contact-page select-text">
+      <header className="contact-hero">
+        <div>
+          <p className="section-kicker">06 / Contact</p>
+          <h1 className="golden-display">Let&apos;s make the next thing</h1>
+          <p className="contact-hero__script">feel worth remembering.</p>
         </div>
-
-        <h1 className="text-display-lg uppercase font-bold text-[#F7F4EE] tracking-tight mt-2">
-          Direct Engagement
-        </h1>
-
-        <p className="text-body-lg text-[#A5A2A0] max-w-3xl leading-relaxed">
-          No generic discovery gates or recruiter middle-management. Send a project inquiry directly or schedule an in-person coffee review in Kathmandu.
+        <p className="contact-hero__copy">
+          Share the context, the constraint, and what success should feel like. I&apos;ll reply with a practical next step within one working day.
         </p>
-      </div>
+      </header>
 
-      {/* Main Two-Column Layout: Left 60% Letter, Right 40% Action Form */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left: Scanned Paper Note */}
-        <div className="lg:col-span-7 flex flex-col gap-3">
-          <div className="flex items-center justify-between text-xs text-[#A5A2A0] px-1">
-            <span className="uppercase text-[#B37CFF] font-semibold">[ MEMORANDUM // STUDIO DIRECT ]</span>
-            <span>SAMEER CHAUDHARY</span>
+      <section className="contact-contract" aria-labelledby="contract-title">
+        <div className="contact-section-intro">
+          <SketchIcon icon={MessageCircle} size="lg" />
+          <div>
+            <p className="section-kicker">A note before the form</p>
+            <h2 id="contract-title">A small contract of intent</h2>
+            <p>No jargon. Just the kind of collaboration I want to build.</p>
           </div>
-          <LetterPaper />
         </div>
+        <LetterPaper />
+      </section>
 
-        {/* Right: Project Inquiry & Coffee Scheduler Form */}
-        <div className="lg:col-span-5 sticky top-28 flex flex-col gap-3">
-          <div className="flex items-center justify-between text-xs text-[#A5A2A0] px-1">
-            <span className="uppercase text-[#B37CFF] font-semibold">[ DIRECT DISPATCH CONSOLE ]</span>
-            <span>24H RESPONSE</span>
+      <section className="contact-form-section" aria-labelledby="contact-form-title">
+        <div className="contact-form-section__aside">
+          <p className="section-kicker">Start here</p>
+          <h2 id="contact-form-title">Tell me what needs clarity.</h2>
+          <p>Choose a project inquiry or an in-person coffee. The form only asks for what helps me respond usefully.</p>
+
+          <div className="contact-methods">
+            <a href={`mailto:${contactEmail}`}>
+              <SketchIcon icon={Mail} size="sm" />
+              <span><strong>Email</strong>{contactEmail}</span>
+            </a>
+            <div>
+              <SketchIcon icon={MapPin} size="sm" />
+              <span><strong>Based in</strong>Kathmandu, Nepal</span>
+            </div>
+            <div>
+              <SketchIcon icon={Coffee} size="sm" />
+              <span><strong>In person</strong>Himalayan Java</span>
+            </div>
           </div>
-          <HimalayanJavaScheduler />
         </div>
-      </div>
+        <HimalayanJavaScheduler />
+      </section>
     </div>
   );
 }

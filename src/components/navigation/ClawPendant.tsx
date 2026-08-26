@@ -41,7 +41,7 @@ export function ClawPendant({
       <Link
         href={href}
         className="relative block min-w-[44px] min-h-[44px] flex flex-col items-center outline-none focus-visible:ring-2 focus-visible:ring-[#B37CFF] focus-visible:ring-offset-4 focus-visible:ring-offset-[#090A0C]"
-        aria-label={`${label} ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Navigation Section`}
+        aria-label={`${label} — Navigation section`}
         aria-current={isActive ? "page" : undefined}
       >
         {/* Animated Claw Jewelry Wrapper */}

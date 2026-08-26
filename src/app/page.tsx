@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, Compass } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Compass, PackageCheck, PenTool, Search, Waypoints } from "lucide-react";
 import { OWNER_DATA } from "@/data/projects";
 import { ProjectShowcase } from "@/components/home/ProjectShowcase";
 import { ServiceIndex } from "@/components/home/ServiceIndex";
+import { SketchIcon } from "@/components/ui/SketchIcon";
 
 const aboutStats = [
   { label: "Agency experience", value: "10 months", detail: "Embedded product workflow" },
@@ -15,10 +16,10 @@ const aboutStats = [
 ];
 
 const processSteps = [
-  ["01", "Understand", "Clarify users, business goals and technical constraints before touching wireframes."],
-  ["02", "Structure", "Shape information architecture, intuitive journeys and rapid low-fidelity prototypes."],
-  ["03", "Design", "Refine responsive components, accessibility, typography and purposeful interaction."],
-  ["04", "Deliver", "Document decisions, prepare prototypes and partner through engineering QA."],
+  { number: "01", title: "Understand", copy: "Clarify users, business goals and technical constraints before touching wireframes.", icon: Search },
+  { number: "02", title: "Structure", copy: "Shape information architecture, intuitive journeys and rapid low-fidelity prototypes.", icon: Waypoints },
+  { number: "03", title: "Design", copy: "Refine responsive components, accessibility, typography and purposeful interaction.", icon: PenTool },
+  { number: "04", title: "Deliver", copy: "Document decisions, prepare prototypes and partner through engineering QA.", icon: PackageCheck },
 ];
 
 export default function HomePage() {
@@ -29,33 +30,34 @@ export default function HomePage() {
 
         <div className="hero-editorial-card">
           <div className="hero-editorial-card__copy">
-            <p className="font-editorial-italic text-3xl text-[#B37CFF] sm:text-5xl">
-              In case of creativity
-            </p>
+            <p className="section-kicker">Independent product designer · Kathmandu</p>
             <h1 className="hero-editorial-title">
               Better Call <span className="hero-name-accent">Sam</span>
             </h1>
-            <p className="hero-editorial-deck">
-              Product thinking, expressive interfaces and campaign systems shaped into clear, buildable work.
-            </p>
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-              <a href="#work" className="hero-button hero-button--primary">
-                See selected work <ArrowDown className="h-4 w-4" />
-              </a>
-              <Link href="/contact" className="hero-button hero-button--secondary">
-                Start a project <ArrowUpRight className="h-4 w-4" />
-              </Link>
+            <p className="hero-editorial-script">In case of creativity</p>
+            <div className="hero-editorial-card__bodyline">
+              <p className="hero-editorial-deck">
+                I turn unclear product problems into thoughtful interfaces, brand systems, and campaigns that feel human and ship cleanly.
+              </p>
+              <div className="hero-editorial-actions">
+                <a href="#work" className="hero-button hero-button--primary">
+                  See selected work <ArrowDown className="h-4 w-4" />
+                </a>
+                <Link href="/contact" className="hero-button hero-button--secondary">
+                  Start a project <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="hero-portrait" aria-label="Portrait of Sameer Chaudhary">
           <Image
-            src="/images/sameer-hero-new.png"
-            alt="Sameer Chaudhary standing outdoors in the mountains"
+            src="/images/sameer-portrait-seated.png"
+            alt="Sameer Chaudhary seated and looking to the side"
             fill
             priority
-            className="object-cover object-[50%_18%]"
+            className="object-contain object-bottom"
             sizes="(max-width: 640px) 78vw, 470px"
           />
           <div className="hero-portrait__grade" aria-hidden="true" />
@@ -172,11 +174,11 @@ export default function HomePage() {
             </div>
 
             <div className="process-cards">
-              {processSteps.map(([number, title, copy]) => (
+              {processSteps.map(({ number, title, copy, icon }) => (
                 <article key={number} className="process-card">
                   <div className="process-card__topline">
                     <span className="process-card__number">{number}</span>
-                    <span aria-hidden="true">↗</span>
+                    <SketchIcon icon={icon} size="sm" />
                   </div>
                   <h3 className="process-card__title">{title}</h3>
                   <p className="process-card__copy">{copy}</p>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lexend_Giga, Cormorant_Garamond } from "next/font/google";
+import { Caveat, Lexend_Giga, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { NecklaceNav } from "@/components/navigation/NecklaceNav";
 import { TorchReveal } from "@/components/background/TorchReveal";
@@ -9,6 +9,8 @@ import { VinylPlayer } from "@/components/ui/VinylPlayer";
 import { PantherCursor } from "@/components/ui/PantherCursor";
 import Link from "next/link";
 import { Coffee } from "lucide-react";
+
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@bettercallsam.design";
 
 const lexendGiga = Lexend_Giga({
   subsets: ["latin"],
@@ -25,8 +27,15 @@ const editorialFont = Cormorant_Garamond({
   display: "swap"
 });
 
+const handwrittenFont = Caveat({
+  subsets: ["latin"],
+  variable: "--font-handwritten",
+  weight: ["400", "500", "600", "700"],
+  display: "swap"
+});
+
 export const metadata: Metadata = {
-  title: "Sameer Chaudhary Ã¢â‚¬â€ Product & UI/UX Designer | Better Call Sam",
+  title: "Sameer Chaudhary — Product & UI/UX Designer | Better Call Sam",
   description: "Product, web, email and visual design by Sameer Chaudhary, a Kathmandu-based designer working with ambitious clients and agency teams.",
   keywords: [
     "Sameer Chaudhary",
@@ -41,7 +50,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Sameer Chaudhary", url: "https://bettercallsam.design" }],
   creator: "Sameer Chaudhary",
   openGraph: {
-    title: "Sameer Chaudhary Ã¢â‚¬â€ Product & UI/UX Designer | Better Call Sam",
+    title: "Sameer Chaudhary — Product & UI/UX Designer | Better Call Sam",
     description: "Product, web, email and visual design by Sameer Chaudhary. In case of creativity.",
     url: "https://bettercallsam.design",
     siteName: "Better Call Sam",
@@ -50,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sameer Chaudhary Ã¢â‚¬â€ Product & UI/UX Designer | Better Call Sam",
+    title: "Sameer Chaudhary — Product & UI/UX Designer | Better Call Sam",
     description: "Product, web, email and visual design by Sameer Chaudhary. In case of creativity."
   }
 };
@@ -71,7 +80,7 @@ export default function RootLayout({
       "addressLocality": "Kathmandu",
       "addressCountry": "Nepal"
     },
-    "email": "sameer974939@gmail.com",
+    "email": contactEmail,
     "alumniOf": {
       "@type": "EducationalOrganization",
       "name": "Techspire College",
@@ -89,7 +98,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${lexendGiga.variable} ${editorialFont.variable} h-full bg-[#090A0C] text-[#F7F4EE]`}>
+    <html lang="en" className={`${lexendGiga.variable} ${editorialFont.variable} ${handwrittenFont.variable} h-full bg-[#090A0C] text-[#F7F4EE]`}>
       <head>
         <script
           type="application/ld+json"
@@ -151,16 +160,16 @@ export default function RootLayout({
               </div>
 
               <a
-                href="mailto:sameer974939@gmail.com"
+                href={`mailto:${contactEmail}`}
                 className="text-[#F7F4EE] hover:text-[#B37CFF] transition-colors underline underline-offset-4"
               >
-                sameer974939@gmail.com
+                {contactEmail}
               </a>
             </div>
 
             {/* Right: Copyright */}
             <div className="text-[11px] text-[#A5A2A0] flex flex-col items-start md:items-end gap-1">
-              <span>Ã‚Â© {new Date().getFullYear()} Sameer Chaudhary.</span>
+              <span>© {new Date().getFullYear()} Sameer Chaudhary.</span>
               <span className="text-[10px] text-[rgba(247,244,238,0.4)]">Techspire College BSc IT (2024–2027)</span>
             </div>
           </div>

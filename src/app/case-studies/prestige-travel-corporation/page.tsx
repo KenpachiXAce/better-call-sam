@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, ArrowLeft, Check, Compass, Shield, Users, Clock, TrendingUp, Layers, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, TrendingUp, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Prestige Travel Corporation Case Study ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Sameer Chaudhary | Better Call Sam",
+  title: "Prestige Travel Corporation Case Study — Sameer Chaudhary | Better Call Sam",
   description: "How Sameer contributed as part of the Arcodify agency team to streamline Prestige Travel's luxury reservation funnel from 11 steps down to 4, boosting booking completion by +156%."
 };
 
@@ -28,7 +28,7 @@ export default function PrestigeTravelCaseStudyPage() {
         <div className="flex flex-wrap items-center gap-3 text-xs text-[#A5A2A0]">
           <span className="text-[#B37CFF] font-semibold">01 //</span>
           <span className="uppercase tracking-wider">Luxury Travel &amp; Tourism</span>
-          <span className="text-[rgba(247,244,238,0.25)]">ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€š·</span>
+          <span className="text-[rgba(247,244,238,0.25)]">·</span>
           <span>12 Weeks (2025)</span>
         </div>
 
@@ -98,7 +98,7 @@ export default function PrestigeTravelCaseStudyPage() {
             Prestige Travel Corporation caters to international travelers seeking bespoke luxury vacation packages across Asia and Europe. However, their legacy web platform struggled with severe booking drop-off: over 68% of users who initiated a travel booking abandoned the process prior to final confirmation.
           </p>
           <p>
-            An internal evaluation conducted by the Arcodify agency team revealed that travelers were forced through 11 fragmented screensÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Âasking for redundant personal details, unclear passport numbers, and confusing flight add-on selections before they were even shown transparent pricing.
+            An internal evaluation conducted by the Arcodify agency team revealed that travelers were forced through 11 fragmented screens—asking for redundant personal details, unclear passport numbers, and confusing flight add-on selections before they were even shown transparent pricing.
           </p>
         </div>
       </section>

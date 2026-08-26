@@ -12,7 +12,7 @@ export interface HimalayanJavaBranch {
 export const HIMALAYAN_JAVA_BRANCHES: HimalayanJavaBranch[] = [
   {
     id: "thamel",
-    name: "Himalayan Java ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Thamel Flagship",
+    name: "Himalayan Java — Thamel Flagship",
     neighborhood: "Tridevi Marg, Thamel",
     city: "Kathmandu",
     address: "Tridevi Marg (Opposite Garden of Dreams), Kathmandu",
@@ -22,7 +22,7 @@ export const HIMALAYAN_JAVA_BRANCHES: HimalayanJavaBranch[] = [
   },
   {
     id: "durbar-marg",
-    name: "Himalayan Java ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Durbar Marg Lounge",
+    name: "Himalayan Java — Durbar Marg Lounge",
     neighborhood: "Kingsway / Durbar Marg",
     city: "Kathmandu",
     address: "Annapurna Arcade, Durbar Marg, Kathmandu",
@@ -32,7 +32,7 @@ export const HIMALAYAN_JAVA_BRANCHES: HimalayanJavaBranch[] = [
   },
   {
     id: "mandikhatar",
-    name: "Himalayan Java ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Mandikhatar Garden",
+    name: "Himalayan Java — Mandikhatar Garden",
     neighborhood: "Mandikhatar / Golfutar",
     city: "Kathmandu",
     address: "Golfutar Main Rd, Mandikhatar, Kathmandu",
@@ -42,7 +42,7 @@ export const HIMALAYAN_JAVA_BRANCHES: HimalayanJavaBranch[] = [
   },
   {
     id: "jhamsikhel",
-    name: "Himalayan Java ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Jhamsikhel Patan",
+    name: "Himalayan Java — Jhamsikhel Patan",
     neighborhood: "Restaurant Row, Jhamsikhel",
     city: "Lalitpur",
     address: "Near British School Rd, Jhamsikhel, Lalitpur",
@@ -52,7 +52,7 @@ export const HIMALAYAN_JAVA_BRANCHES: HimalayanJavaBranch[] = [
   },
   {
     id: "bouddha",
-    name: "Himalayan Java ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Bouddha Stupa View",
+    name: "Himalayan Java — Bouddha Stupa View",
     neighborhood: "Bouddha Stupa Circle",
     city: "Kathmandu",
     address: "Bouddhanath Sadak, 3rd Floor Rooftop, Kathmandu",
@@ -62,7 +62,7 @@ export const HIMALAYAN_JAVA_BRANCHES: HimalayanJavaBranch[] = [
   },
   {
     id: "baluwatar",
-    name: "Himalayan Java ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Baluwatar",
+    name: "Himalayan Java — Baluwatar",
     neighborhood: "Diplomatic Enclave, Baluwatar",
     city: "Kathmandu",
     address: "Near Prime Minister Residence, Baluwatar, Kathmandu",
@@ -72,7 +72,7 @@ export const HIMALAYAN_JAVA_BRANCHES: HimalayanJavaBranch[] = [
   },
   {
     id: "pokhara-lakeside",
-    name: "Himalayan Java ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Pokhara Lakeside",
+    name: "Himalayan Java — Pokhara Lakeside",
     neighborhood: "Center Point, Lakeside",
     city: "Pokhara",
     address: "Lakeside-6, Center Point, Pokhara",
