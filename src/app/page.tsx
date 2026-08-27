@@ -66,13 +66,6 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="hero-sense" aria-hidden="true">
-            <Image src="/images/hero-sense.png" alt="" fill sizes="220px" />
-          </div>
-
-          <div className="hero-name-sticker" aria-label="Sameer Chaudhary, product designer">
-            <Image src="/images/hero-name.png" alt="Hello, my name is Sameer" fill sizes="240px" />
-          </div>
         </div>
 
         <div className="hero-portrait" aria-label="Portrait of Sameer Chaudhary">
@@ -85,6 +78,10 @@ export default function HomePage() {
             sizes="(max-width: 640px) 92vw, (max-width: 1024px) 420px, 540px"
           />
           <div className="hero-portrait__grade" aria-hidden="true" />
+        </div>
+
+        <div className="hero-name-sticker" aria-label="Sameer Chaudhary, product designer">
+          <Image src="/images/hero-name.png" alt="Hello, my name is Sameer" fill sizes="240px" />
         </div>
 
         <div className="hero-stage__footer">
