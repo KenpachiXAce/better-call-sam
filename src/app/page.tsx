@@ -2,18 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Compass, PackageCheck, PenTool, Search, Waypoints } from "lucide-react";
+import { ArrowUpRight, PackageCheck, PenTool, Search, Waypoints } from "lucide-react";
 import { OWNER_DATA } from "@/data/projects";
 import { ProjectShowcase } from "@/components/home/ProjectShowcase";
 import { ServiceIndex } from "@/components/home/ServiceIndex";
-import { SketchIcon } from "@/components/ui/SketchIcon";
-
-const aboutStats = [
-  { label: "Agency experience", value: "10 months", detail: "Product workflow" },
-  { label: "Web projects", value: "10+ shipped", detail: "Across industries" },
-  { label: "Travel products", value: "3 platforms", detail: "Booking journeys" },
-  { label: "Largest platform", value: "95 pages", detail: "University system" },
-];
 
 const processSteps = [
   { number: "01", title: "Understand", copy: "Define the user, goal and constraints.", icon: Search },
@@ -22,14 +14,16 @@ const processSteps = [
   { number: "04", title: "Deliver", copy: "Document, hand off and refine.", icon: PackageCheck },
 ];
 
-const heroStickers = [
-  { id: "anti-social", src: "/images/hero-stickers/anti-social.png", size: "180px" },
-  { id: "out-of-office", src: "/images/hero-stickers/out-of-office.png", size: "150px" },
-  { id: "shortcut-heart", src: "/images/hero-stickers/shortcut-heart.png", size: "88px" },
-  { id: "user-friendly", src: "/images/hero-stickers/user-friendly.png", size: "170px" },
-  { id: "globe", src: "/images/hero-stickers/globe.png", size: "84px" },
-  { id: "peace-hand", src: "/images/hero-stickers/peace-hand.png", size: "78px" },
-  { id: "sand-studio", src: "/images/hero-stickers/sand-studio.png", size: "82px" },
+const heroDecorations = [
+  { id: "pen-nib", src: "/images/stickers/pen-nib.png", size: "92px" },
+  { id: "pixel-diamond", src: "/images/stickers/pixel-diamond.png", size: "76px" },
+  { id: "cursor-arrow", src: "/images/stickers/cursor-arrow.png", size: "74px" },
+  { id: "gradient-squiggle", src: "/images/stickers/gradient-squiggle.png", size: "92px" },
+];
+
+const aboutNotes = [
+  { id: "focus", title: "Focus", copy: "Product, UI/UX and visual systems.", sticker: "/images/stickers/wave-hand.png" },
+  { id: "approach", title: "Approach", copy: "Clear decisions. Practical handoff.", sticker: "/images/stickers/spider-mask.png" },
 ];
 
 export default function HomePage() {
@@ -40,14 +34,14 @@ export default function HomePage() {
 
         <div className="hero-editorial-card">
           <div className="hero-editorial-card__copy">
-            <p className="section-kicker">Independent product designer · Kathmandu</p>
+            <p className="section-kicker">Product designer · Kathmandu</p>
             <h1 className="hero-editorial-title">
               Better Call <span className="hero-name-accent">Sam</span>
             </h1>
             <p className="hero-editorial-script">In case of creativity</p>
             <div className="hero-editorial-card__bodyline">
               <p className="hero-editorial-deck">
-                I turn unclear problems into clear interfaces, brand systems and campaigns.
+                Interfaces, brands and campaigns.
               </p>
               <div className="hero-editorial-actions">
                 <Link href="/contact" className="hero-button hero-button--primary">
@@ -58,7 +52,7 @@ export default function HomePage() {
           </div>
 
           <div className="hero-sticker-layer" aria-hidden="true">
-            {heroStickers.map((sticker) => (
+            {heroDecorations.map((sticker) => (
               <span key={sticker.id} className={`hero-sticker hero-sticker--${sticker.id}`}>
                 <Image src={sticker.src} alt="" fill sizes={sticker.size} />
               </span>
@@ -69,6 +63,10 @@ export default function HomePage() {
             <span className="hero-sticker hero-sticker--photoshop">
               <Image src="/images/photoshop-sticker.png" alt="" fill sizes="72px" />
             </span>
+          </div>
+
+          <div className="hero-sense" aria-hidden="true">
+            <Image src="/images/hero-sense.png" alt="" fill sizes="220px" />
           </div>
         </div>
 
@@ -84,53 +82,17 @@ export default function HomePage() {
           <div className="hero-portrait__grade" aria-hidden="true" />
         </div>
 
-        <p className="hero-stage__caption hero-stage__caption--left">
-          Sameer Chaudhary<br /><span>Designer in Kathmandu</span>
-        </p>
-        <p className="hero-stage__caption hero-stage__caption--right">
-          Product &amp; UI/UX designer<br /><span>figuring out thoughtful digital systems</span>
-        </p>
+        <div className="hero-name-sticker" aria-label="Sameer Chaudhary, product designer">
+          <Image src="/images/hero-name.png" alt="Hello, my name is Sameer" fill sizes="190px" />
+        </div>
 
         <div className="hero-stage__footer">
-          <span className="flex items-center gap-2">
-            <Compass className="h-3.5 w-3.5 text-[#EA2B1F]" />
-            Freelance and agency collaborations
-          </span>
-          <span>Scroll to explore · 01—06</span>
+          <span>Available for projects</span>
+          <span>Scroll · 01—06</span>
         </div>
       </section>
 
       <ProjectShowcase />
-
-      <section className="section-gutter w-full border-t border-white/10 bg-[#0D0E10] py-16">
-        <div className="mx-auto flex max-w-7xl flex-col gap-7">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <span className="text-[10px] uppercase tracking-[0.16em] text-[#D9D8D5]">
-              Published outcome · Prestige Travel Corporation
-            </span>
-            <Link
-              href="/case-studies/prestige-travel-corporation"
-              className="flex items-center gap-1 text-[11px] uppercase tracking-[0.12em] text-[#EA2B1F] hover:text-[#FF6B61]"
-            >
-              Read case study <ArrowUpRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 border-l border-t border-white/10 md:grid-cols-4">
-            {[
-              ["Booking flow", "11 → 4", "steps"],
-              ["Completion", "+156%", "published result"],
-              ["Bounce rate", "68% → 22%", "measured reduction"],
-              ["Booking time", "14m → 5m", "task efficiency"],
-            ].map(([label, value, detail]) => (
-              <div key={label} className="border-b border-r border-white/10 bg-[#090A0C] p-5 sm:p-7">
-                <span className="text-[9px] uppercase tracking-[0.13em] text-[#777579]">{label}</span>
-                <div className="my-2 text-xl font-semibold text-[#F7F4EE] sm:text-2xl">{value}</div>
-                <span className="text-[9px] text-[#EA2B1F]">{detail}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <ServiceIndex />
 
@@ -147,36 +109,31 @@ export default function HomePage() {
           </div>
 
           <div className="about-grid mt-10">
-            <article className="liquid-panel about-bio">
-              <div className="about-bio__mark" aria-hidden="true">
-                <Image src="/images/panther-index.png" alt="" width={118} height={70} />
+            <article className="about-card about-bio">
+              <div className="about-card__sticker about-card__sticker--peace" aria-hidden="true">
+                <Image src="/images/stickers/peace-hand.png" alt="" fill sizes="82px" />
               </div>
               <div>
-                <span className="text-[10px] uppercase tracking-[0.18em] text-[#EA2B1F]">Profile / 2026</span>
-                <p className="mt-6 max-w-2xl text-base leading-8 text-[#D9D8D5] sm:text-lg">
-                  I&apos;m Sameer, a Product and UI/UX Designer in Kathmandu. I design digital products across travel, education, hospitality and commerce.
-                </p>
-                <p className="mt-5 max-w-xl text-sm leading-7 text-[#969397]">
-                  Frontend knowledge keeps the work practical to build.
-                </p>
+                <span className="about-card__label">Profile</span>
+                <h3>Sameer Chaudhary</h3>
+                <p>Product and UI/UX designer building clear digital experiences.</p>
               </div>
-              <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.14em] text-[#777579]">
+              <div className="about-card__footer">
                 <span>{OWNER_DATA.location}</span>
-                <span className="text-[#EA2B1F]">Available for projects</span>
+                <span>Available</span>
               </div>
             </article>
 
-            <div className="about-stats">
-              {aboutStats.map((stat, index) => (
-                <article key={stat.label} className="liquid-panel about-stat">
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="text-[9px] uppercase tracking-[0.14em] text-[#777579]">{stat.label}</span>
-                    <span className="text-[10px] text-[#EA2B1F]">0{index + 1}</span>
+            <div className="about-notes">
+              {aboutNotes.map((note) => (
+                <article key={note.id} className="about-card about-note">
+                  <div>
+                    <span className="about-card__label">{note.title}</span>
+                    <p>{note.copy}</p>
                   </div>
-                  <strong className="mt-8 block text-xl font-semibold uppercase leading-tight text-[#F7F4EE] sm:text-2xl">
-                    {stat.value}
-                  </strong>
-                  <span className="mt-2 block text-[10px] leading-5 text-[#969397]">{stat.detail}</span>
+                  <div className={`about-card__sticker about-card__sticker--${note.id}`} aria-hidden="true">
+                    <Image src={note.sticker} alt="" fill sizes="92px" />
+                  </div>
                 </article>
               ))}
             </div>
@@ -196,11 +153,11 @@ export default function HomePage() {
             </div>
 
             <div className="process-cards">
-              {processSteps.map(({ number, title, copy, icon }) => (
+              {processSteps.map(({ number, title, copy, icon: Icon }) => (
                 <article key={number} className="process-card">
                   <div className="process-card__topline">
+                    <span className="process-card__icon" aria-hidden="true"><Icon /></span>
                     <span className="process-card__number">{number}</span>
-                    <SketchIcon icon={icon} size="sm" />
                   </div>
                   <h3 className="process-card__title">{title}</h3>
                   <p className="process-card__copy">{copy}</p>
