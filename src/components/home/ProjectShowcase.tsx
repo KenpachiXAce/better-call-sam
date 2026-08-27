@@ -42,6 +42,10 @@ function CaseStudyCard({ project, index, active = true }: {
       className={`case-study-card case-study-rail-card ${active ? "is-active" : "is-muted"}`}
       aria-label={`Read ${project.title} case study`}
     >
+      <span className="case-study-card__tingle" aria-hidden="true">
+        <Image src="/images/hero-sense.png" alt="" fill sizes="240px" />
+      </span>
+
       <div className="case-study-card__topline">
         <span>0{index + 1}</span>
         <ArrowUpRight aria-hidden="true" />
