@@ -6,6 +6,7 @@ import { ArrowUpRight, PackageCheck, PenTool, Search, Waypoints } from "lucide-r
 import { OWNER_DATA } from "@/data/projects";
 import { ProjectShowcase } from "@/components/home/ProjectShowcase";
 import { ServiceIndex } from "@/components/home/ServiceIndex";
+import { SketchIcon } from "@/components/ui/SketchIcon";
 
 const processSteps = [
   { number: "01", title: "Understand", copy: "Define the user, goal and constraints.", icon: Search },
@@ -22,8 +23,8 @@ const heroDecorations = [
 ];
 
 const aboutNotes = [
-  { id: "focus", title: "Focus", copy: "Product, UI/UX and visual systems.", sticker: "/images/stickers/wave-hand.png" },
-  { id: "approach", title: "Approach", copy: "Clear decisions. Practical handoff.", sticker: "/images/stickers/spider-mask.png" },
+  { id: "focus", title: "Focus", copy: "Product, UI/UX and visual systems." },
+  { id: "approach", title: "Approach", copy: "Clear decisions. Practical handoff." },
 ];
 
 export default function HomePage() {
@@ -68,6 +69,10 @@ export default function HomePage() {
           <div className="hero-sense" aria-hidden="true">
             <Image src="/images/hero-sense.png" alt="" fill sizes="220px" />
           </div>
+
+          <div className="hero-name-sticker" aria-label="Sameer Chaudhary, product designer">
+            <Image src="/images/hero-name.png" alt="Hello, my name is Sameer" fill sizes="240px" />
+          </div>
         </div>
 
         <div className="hero-portrait" aria-label="Portrait of Sameer Chaudhary">
@@ -80,10 +85,6 @@ export default function HomePage() {
             sizes="(max-width: 640px) 92vw, (max-width: 1024px) 420px, 540px"
           />
           <div className="hero-portrait__grade" aria-hidden="true" />
-        </div>
-
-        <div className="hero-name-sticker" aria-label="Sameer Chaudhary, product designer">
-          <Image src="/images/hero-name.png" alt="Hello, my name is Sameer" fill sizes="190px" />
         </div>
 
         <div className="hero-stage__footer">
@@ -110,9 +111,6 @@ export default function HomePage() {
 
           <div className="about-grid mt-10">
             <article className="about-card about-bio">
-              <div className="about-card__sticker about-card__sticker--peace" aria-hidden="true">
-                <Image src="/images/stickers/peace-hand.png" alt="" fill sizes="82px" />
-              </div>
               <div>
                 <span className="about-card__label">Profile</span>
                 <h3>Sameer Chaudhary</h3>
@@ -130,9 +128,6 @@ export default function HomePage() {
                   <div>
                     <span className="about-card__label">{note.title}</span>
                     <p>{note.copy}</p>
-                  </div>
-                  <div className={`about-card__sticker about-card__sticker--${note.id}`} aria-hidden="true">
-                    <Image src={note.sticker} alt="" fill sizes="92px" />
                   </div>
                 </article>
               ))}
@@ -156,7 +151,7 @@ export default function HomePage() {
               {processSteps.map(({ number, title, copy, icon: Icon }) => (
                 <article key={number} className="process-card">
                   <div className="process-card__topline">
-                    <span className="process-card__icon" aria-hidden="true"><Icon /></span>
+                    <SketchIcon icon={Icon} size="xl" tone="accent" />
                     <span className="process-card__number">{number}</span>
                   </div>
                   <h3 className="process-card__title">{title}</h3>

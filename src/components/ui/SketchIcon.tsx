@@ -3,7 +3,7 @@ import type { LucideIcon } from "lucide-react";
 interface SketchIconProps {
   icon: LucideIcon;
   label?: string;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   tone?: "accent" | "violet" | "paper";
 }
 
